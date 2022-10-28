@@ -7,8 +7,10 @@ import static com.or2go.core.Or2goConstValues.OR2GO_STORE_DATA_PRICE;
 import static com.or2go.core.Or2goConstValues.OR2GO_STORE_DATA_PRODUCT;
 import static com.or2go.core.Or2goConstValues.OR2GO_STORE_DATA_SKU;
 import static com.or2go.core.Or2goConstValues.OR2GO_STORE_DATA_STOCK;
+import static com.or2go.core.Or2goConstValues.OR2GO_VENDOR_PRODUCTLIST_DOWNLOAD_DONE;
 import static com.or2go.core.Or2goConstValues.OR2GO_VENDOR_PRODUCTLIST_NONE;
 import static com.or2go.core.Or2goConstValues.VENDOR_PAYOPT_NONE;
+import static com.or2go.core.VendorDBState.OR2GO_VENDOR_DBSTATUS_UPDATED;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,20 +46,20 @@ public class Or2GoStore {
     public Integer vShutDownType;
 
 
-    StoreDBState mInfoDBState;
-    StoreDBState mProductDBState;
-    StoreDBState mPriceDBState;
-    StoreDBState mSKUDBState;
+    public StoreDBState mInfoDBState;
+    public StoreDBState mProductDBState;
+    public StoreDBState mPriceDBState;
+    public StoreDBState mSKUDBState;
 
     public Integer vProdStatus;
     //Integer vReqProdDbVersion;
 
-    Integer vOrderControl;
-    Integer vOrderPayOption;
+    public Integer vOrderControl;
+    public Integer vOrderPayOption;
 
-    String vClosedOn;
-    ArrayList<String> vClosedDates;
-    ArrayList<String> vClosedDays;
+    public String vClosedOn;
+    public ArrayList<String> vClosedDates;
+    public ArrayList<String> vClosedDays;
 
     public String[] vTags;
 
@@ -484,12 +486,18 @@ public class Or2GoStore {
         dumpDBStates();
         if (mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
             return true;
+        if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+            return true;
         else
             return false;
     }
 
     public synchronized Integer getDownloadDataType() {
         System.out.println(" Store Download Data Type");
+        if (mInfoDBState.isRequiredDBDownload()){
+            System.out.println(" Store Product DB Status="+ mInfoDBState.getState()+ " Cur Ver="+mInfoDBState.getVer()+ " Req Ver="+mInfoDBState.getRequiredVer());
+            return OR2GO_STORE_DATA_INFO;
+        }
         if (mProductDBState.isRequiredDBDownload()) {
             System.out.println(" Store Product DB Status="+ mProductDBState.getState()+ " Cur Ver="+mProductDBState.getVer()+ " Req Ver="+mProductDBState.getRequiredVer());
             return OR2GO_STORE_DATA_PRODUCT;
@@ -564,8 +572,6 @@ public class Or2GoStore {
 
     }
 
-
-    /*
     public synchronized boolean isServerProductListDownloadDone() {
 
         if (vProdStatus == OR2GO_VENDOR_PRODUCTLIST_DOWNLOAD_DONE)
@@ -584,5 +590,5 @@ public class Or2GoStore {
         else
             return false;
 
-    }*/
+    }
 }

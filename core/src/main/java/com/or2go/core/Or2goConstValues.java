@@ -4,6 +4,11 @@ public class Or2goConstValues {
     //Limits
     public static final int OR2GO_MAX_LOGIN_RETRY_COUNT=5;
 
+    public static final int OR2GO_LOGIN_STATUS_NONE = 0;
+    public static final int OR2GO_LOGIN_STATUS_INPROGRESS = 1;
+    public static final int OR2GO_LOGIN_STATUS_FAILED = 2;
+    public static final int OR2GO_LOGIN_STATUS_SUCCESS = 3;
+
     //Server communication message
     public static final int OR2GO_COMM_LOGIN = 1;
     public static final int OR2GO_COMM_LOGOUT = 2;
@@ -37,6 +42,7 @@ public class Or2goConstValues {
 
     public static final int OR2GO_PAYMENT_STATUS_UPDATE = 30;
     public static final int OR2GO_PREPAYMENT_STATUS_UPDATE=31;
+    public static final int OR2GO_PAY_STATUS_PENDING=32;
 
     public static final int OR2GO_GET_SPINFO = 40;
 
@@ -54,6 +60,8 @@ public class Or2goConstValues {
     public static final int OR2GO_VENDOR_DBVERSION_LIST=90;
     public static final int OR2GO_VENDOR_PRICE_LIST=91;
     public static final int OR2GO_VENDOR_INFO=92;
+    public static final int OR2GO_STORE_INFO=93;
+    public static final int OR2GO_SKU_DATA=94;
 
     public static final int OR2GO_CRASH_REPORT = 101;
 
@@ -61,6 +69,8 @@ public class Or2goConstValues {
     public static final int OR2GO_ITEM_STOCK_VAL = 112;
 
     public static final int OR2GO_DA_LOCATION = 120;
+    public static final int OR2GO_ACTIVE_DA_LIST=121;
+    public static final int OR2GO_ASSIGN_DA=122;
 
     ///////////////////
 
@@ -121,6 +131,7 @@ public class Or2goConstValues {
     public static final int ORDER_STATUS_CONFIRM_REQUEST = 9;
     public static final int ORDER_STATUS_PREPAYMENT_REQUEST = 10;
     public static final int ORDER_STATUS_READY = 11;
+
     public static final int ORDER_STATUS_COMPLETE = 20;
     public static final int ORDER_STATUS_CANCELLED = 21;
     public static final int ORDER_STATUS_REJECTED = 22;
@@ -144,6 +155,11 @@ public class Or2goConstValues {
     public static final int OR2GO_EVENT_ORDER_CONFIRM=2;
     public static final int OR2GO_EVENT_ORDER_REJECT= 3;
     public static final int OR2GO_EVENT_ORDER_CANCEL= 4;
+
+    public static final int OR2GO_EVENT_ORDER_READY_DELIVERY= 9;
+    public static final int OR2GO_EVENT_ORDER_READY_PICKUP= 10;
+    public static final int OR2GO_EVENT_ORDER_PICKUP_DA= 11;
+    public static final int OR2GO_EVENT_ORDER_PICKUP_CUSTOMER= 12;
 
     public static final int OR2GO_EVENT_ONLINE_PAYMENT_COMPLETE= 1;
     public static final int OR2GO_EVENT_ONLINE_PAYMENT_FAILURE= 2;

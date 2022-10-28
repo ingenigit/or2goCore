@@ -118,35 +118,35 @@ public class Or2goVendorInfo {
     }
 
     public Or2goVendorInfo(String id) {
-        vId = id;
-        vName = "";
-        vType = "";
-        vDescription = "";
-        vTagInfo = "";
-        vAddress = "";
-        vPlace = "";
-        vLocality = "";
-        vState = "";
-        vStatus = "";
-        vMinOrd = "";
-        vWorkTime = "";
-        vClosedOn = "";
-        vClosedFrom = "";
-        vClosedTill = "";
-        vClosedReason = "";
-        vShutDownType = 0;
+        this.vId = id;
+        this.vName = "";
+        this.vType = "";
+        this.vDescription = "";
+        this.vTagInfo = "";
+        this.vAddress = "";
+        this.vPlace = "";
+        this.vLocality = "";
+        this.vState = "";
+        this.vStatus = "";
+        this.vMinOrd = "";
+        this.vWorkTime = "";
+        this.vClosedOn = "";
+        this.vClosedFrom = "";
+        this.vClosedTill = "";
+        this.vClosedReason = "";
+        this.vShutDownType = 0;
 
-        vClosedDates = new ArrayList<String>();
-        vClosedDays = new ArrayList<String>();
+        this.vClosedDates = new ArrayList<String>();
+        this.vClosedDays = new ArrayList<String>();
 
-        vProdStatus = OR2GO_VENDOR_PRODUCTLIST_NONE;
-        vLogoPath = "";
-        vDBName = "";
-        vOrderPayOption= VENDOR_PAYOPT_NONE;
+        this.vProdStatus = OR2GO_VENDOR_PRODUCTLIST_NONE;
+        this.vLogoPath = "";
+        this.vDBName = "";
+        this.vOrderPayOption= VENDOR_PAYOPT_NONE;
 
-        mDBState = new VendorDBState(0, 0, 0);
+        this.mDBState = new VendorDBState(0, 0, 0);
 
-        isActive = false;
+        this.isActive = false;
     }
 
     public boolean updateVendorInfo(Or2goVendorInfo newinfo) {
