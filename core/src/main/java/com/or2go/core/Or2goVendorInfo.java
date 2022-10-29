@@ -48,7 +48,7 @@ public class Or2goVendorInfo {
     VendorDBState mDBState;
 
     public Integer vProdStatus;
-    public Integer vReqProdDbVersion;
+    public Integer vProdDbVersion;
 
     public Integer vOrderControl;
     public Integer vOrderPayOption;
@@ -110,7 +110,7 @@ public class Or2goVendorInfo {
         this.vOrderControl = 0;
 
         //vInfoVersion = infodbver;
-        //vProdDbVersion = proddbver;
+        this.vProdDbVersion = proddbver;
 
         this.mDBState = new VendorDBState(infodbver, proddbver, pricedbver);
         //vLogo = logo;
@@ -239,6 +239,9 @@ public class Or2goVendorInfo {
     public Integer getProductDbVersion() {
         return mDBState.getProductVer();
     }
+    public Integer getDbVersion() {
+        return vProdDbVersion;
+    }
 
     public Integer getPriceDbVersion() {
         return mDBState.getPriceVer();
@@ -288,8 +291,17 @@ public class Or2goVendorInfo {
     }
 
     public boolean setProductDbVersion(Integer ver) {
-        mDBState.setProductVersion(ver);
+//        mDBState.setProductVersion(ver);
+        vProdDbVersion = ver;
         return true;
+    }
+
+    public Integer getvProdDbVersion()
+    {
+        if (vProdDbVersion == null)
+            return 0;
+        else
+            return vProdDbVersion;
     }
 
     //public Integer getInfoVersion() { return mDBState.getInfoVer();}

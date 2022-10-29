@@ -42,7 +42,7 @@ public class Or2goConstValues {
 
     public static final int OR2GO_PAYMENT_STATUS_UPDATE = 30;
     public static final int OR2GO_PREPAYMENT_STATUS_UPDATE=31;
-    public static final int OR2GO_PAY_STATUS_PENDING=32;
+    public static final int OR2GO_PAY_STATUS_PENDING=32; //1
 
     public static final int OR2GO_GET_SPINFO = 40;
 
@@ -71,6 +71,11 @@ public class Or2goConstValues {
     public static final int OR2GO_DA_LOCATION = 120;
     public static final int OR2GO_ACTIVE_DA_LIST=121;
     public static final int OR2GO_ASSIGN_DA=122;
+    public static final int OR2GO_DA_ASSIGN_REQUESTS=125;
+    public static final int OR2GO_DA_ASSIGNED_ORDERS=126;
+
+    public static final int OR2GO_DA_ASSIGN_REQUEST_REPLY=130;
+    public static final int OR2GO_ORDER_DELIVERY_STATUS_UPDATE=131;
 
     ///////////////////
 
@@ -79,10 +84,10 @@ public class Or2goConstValues {
     public static final int OR2GO_ORDERTYPE_PICKUP = 2;
     public static final int OR2GO_ORDERTYPE_BOOKING = 3;
 
-    //public static final int OR2GO_ORDER_DELIVERY_ASAP = 1;
-    //public static final int OR2GO_ORDER_DELIVERY_BOOK = 2;
-    //public static final int OR2GO_ORDER_PICKUP = 3;
-    //public static final int OR2GO_ORDER_TAKEAWAY = 4;
+    public static final int OR2GO_ORDER_DELIVERY_ASAP = 1;
+    public static final int OR2GO_ORDER_DELIVERY_BOOK = 2;
+    public static final int OR2GO_ORDER_PICKUP = 3;
+    public static final int OR2GO_ORDER_TAKEAWAY = 4;
     //
 
     public static final int OR2GO_VENDORLIST_NONE = 0;
@@ -156,6 +161,11 @@ public class Or2goConstValues {
     public static final int OR2GO_EVENT_ORDER_REJECT= 3;
     public static final int OR2GO_EVENT_ORDER_CANCEL= 4;
 
+    public static final int EV_ORDER_DA_ON_PICKUP=4;
+    public static final int EV_ORDER_DA_DELIVERY_PICKUP=5;
+    public static final int EV_ORDER_DA_ON_DELIVERY=6;
+    public static final int EV_ORDER_DA_DELIVERY_COMPLETE=7;
+
     public static final int OR2GO_EVENT_ORDER_READY_DELIVERY= 9;
     public static final int OR2GO_EVENT_ORDER_READY_PICKUP= 10;
     public static final int OR2GO_EVENT_ORDER_PICKUP_DA= 11;
@@ -187,13 +197,13 @@ public class Or2goConstValues {
     public static final int OR2GO_PAY_STATUS_NONE = 0;
     public static final int OR2GO_PAY_STATUS_ONLINE_COMPLETE_APP=1;
     public static final int OR2GO_PAY_STATUS_EXT_VERIFICATION_PENDING = 2;
-    public static final int OR2GO_PAY_STATUS_COMPLETE = 3;
-    public static final int OR2GO_PAY_STATUS_FAILED_ONLINE = 4;
+    public static final int OR2GO_PAY_STATUS_COMPLETE = 3; //5
+    public static final int OR2GO_PAY_STATUS_FAILED_ONLINE = 4; //3
 
-    public static final int OR2GO_PAY_STATUS_PROCESSING = 10;
-    public static final int OR2GO_PAY_STATUS_LOCAL_COMPLETE = 11;
-    public static final int OR2GO_PAY_STATUS_EXTPAY_CONFIRMATION_REQ = 12;
-    public static final int OR2GO_PAY_STATUS_EXTPAY_CONFIRMATION_FAILURE = 13;
+    public static final int OR2GO_PAY_STATUS_PROCESSING = 10; //2
+    public static final int OR2GO_PAY_STATUS_LOCAL_COMPLETE = 11; //4
+    public static final int OR2GO_PAY_STATUS_EXTPAY_CONFIRMATION_REQ = 12; //10
+    public static final int OR2GO_PAY_STATUS_EXTPAY_CONFIRMATION_FAILURE = 13; //11
 
     //UPI Payment Status
     public static int UPI_PAY_STATUS_FAILURE = 0;
@@ -252,6 +262,9 @@ public class Or2goConstValues {
     public static final int OR2GO_DELIVERY_STATUS_DELIVERY_RETRY = 8;
     public static final int OR2GO_DELIVERY_STATUS_DELIVERY_DONE = 9;
     public static final int OR2GO_DELIVERY_STATUS_ASSIGN_REJECT = 10;
+
+    public static final int OR2GO_DELIVERY_ASSIGN_ACCEPT = 2;
+    public static final int OR2GO_DELIVERY_ASSIGN_REJECT = 3;
 
     //Search Type
     //App Initialization Status

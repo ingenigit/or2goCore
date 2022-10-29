@@ -52,7 +52,6 @@ public class Or2goOrderInfo {
     private Integer oItemDetailsType;
     private ArrayList<OrderItem> oItemList;
 
-
     private ArrayList<String> mStatusChangeList;
     private ArrayList<String> mDeliveryStatusChangeList;
 //    OrderStateMachine oOSM;
@@ -159,12 +158,12 @@ public class Or2goOrderInfo {
 //        oOSM = new OrderStateMachine();
     }
 
-    public void setVendorName(String vendname)
+    public void setVendorName(String vendname) // setStoreName
     {
         oVendorName = vendname;
     }
 
-    public String getVendorName()
+    public String getVendorName() // getStoreName
     { return oVendorName;}
 
     public boolean setOrderId(String id)
@@ -190,8 +189,11 @@ public class Or2goOrderInfo {
     public Integer getType() { return oType;}
 
 
-
-
+    /* public boolean setTotal(String total)
+    {
+        oTotal = total;
+        return true;
+    } */
 
     public boolean setTax(String tax) { oTax = tax; return  true;}
     public String getTax() { return oTax;}
@@ -202,14 +204,14 @@ public class Or2goOrderInfo {
     public boolean isUsingDiscount() { if (oDiscountId>=0) return true;
     else return false;}
 
-    public boolean setTotal(String total) { //void
+    public void setTotal(String total) {
         oTotal = total;
-        return true; //no return
     }
     public String getTotal()
     {
         return oTotal;
     }
+
     public void setSubTotal(String subtot) { oSubTotal = subtot;}
     public String getSubTotal()
     {
@@ -254,11 +256,10 @@ public class Or2goOrderInfo {
         oRequestTime = time;
         return true;
     }
+    public String getRequestTime() { return oRequestTime;}
 
     public void setDeliveryAddrInfo(DeliveryAddrInfo addrinfo) {oDeliveryAddrInfo=addrinfo;}
     public DeliveryAddrInfo getDeliveryAddrInfo() {return oDeliveryAddrInfo;}
-
-    public String getRequestTime() { return oRequestTime;}
 
     //getoVendor() return oVendorId
     public String getStoreId() { return oStoreId;}
@@ -269,7 +270,7 @@ public class Or2goOrderInfo {
     }
 
     public void setAddress(String addr) { oAddress = addr;}
-    public String getAddr() { return oAddress;} //getAddress()
+    public String getAddress() { return oAddress;}
 
     public void setDeliveryLocation(String loc) { oDeliveryPlace = loc;}
     public String getDeliveryLocation() { return oDeliveryPlace;}
@@ -629,7 +630,7 @@ public class Or2goOrderInfo {
                 mStatusChangeList.add("Confirm Order");
                 mStatusChangeList.add("Reject Order");
                 break;
-            /*case ORDER_STATUS_CHARGE_CONFIRM_REQUEST:
+            case ORDER_STATUS_CHARGE_CONFIRM_REQUEST:
                 mStatusChangeList.add("Reject Order");
                 break;
             case ORDER_STATUS_ACCEPT_CHARGE:
@@ -638,7 +639,7 @@ public class Or2goOrderInfo {
                 break;
             case ORDER_STATUS_DECLINE_CHARGE:
                 mStatusChangeList.add("Reject Order");
-                break;*/
+                break;
             case ORDER_STATUS_CONFIRMED:
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
                     if (!isDAAssignRequested() & (!isDAAssigned()))
@@ -669,6 +670,9 @@ public class Or2goOrderInfo {
             case ORDER_STATUS_PICKED_UP:
                 mStatusChangeList.add("Delivery Complete");
                 break;
+//            case ORDER_STATUS_ON_DELIVERY:
+//                mStatusChangeList.add("Delivery Complete");
+//                break;
             case ORDER_STATUS_REJECTED:
                 mStatusChangeList.add("Delete Order");
                 break;
@@ -683,35 +687,63 @@ public class Or2goOrderInfo {
         mDeliveryStatusChangeList.clear();
         switch (oDeliveryStatus)
         {
-            case ORDER_STATUS_PLACED:
-                //if (mAccptCharge)
-                mStatusChangeList.add("Confirm Order");
-                //else
-                //    mStatusChangeList.add("Request Delivery Charge Confirmation");
-                mStatusChangeList.add("Reject Order");
+//            case ORDER_STATUS_PLACED: //2
+//                //if (mAccptCharge)
+//                mStatusChangeList.add("Confirm Order");
+//                //else
+//                //    mStatusChangeList.add("Request Delivery Charge Confirmation");
+//                mStatusChangeList.add("Reject Order");
+//                break;
+//            case ORDER_STATUS_CHARGE_CONFIRM_REQUEST: //5
+//                mStatusChangeList.add("Reject Order");
+//                break;
+//            case ORDER_STATUS_ACCEPT_CHARGE: //6
+//                mStatusChangeList.add("Confirm Order");
+//                mStatusChangeList.add("Reject Order");
+//                break;
+//            case ORDER_STATUS_DECLINE_CHARGE: //7
+//                mStatusChangeList.add("Reject Order");
+//                break;
+//            case ORDER_STATUS_CONFIRMED: //3
+//                mStatusChangeList.add("Out For Delivery");
+//                mStatusChangeList.add("Delivery Assistant Assign");
+//                break;
+//            case ORDER_STATUS_PICKED_UP: //8
+//                mStatusChangeList.add("Delivery Complete");
+//                break;
+//            case ORDER_STATUS_REJECTED: //22
+//                mStatusChangeList.add("Delete Order");
+//                break;
+//            case ORDER_STATUS_CANCEL_REQUEST: //4
+//                mStatusChangeList.add("Confirm Cancellation");
+//                break;
+            case OR2GO_DELIVERY_STATUS_ASSIGNED://3
+                mDeliveryStatusChangeList.add("OnTheWay For Pickup");
+                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
-            case ORDER_STATUS_CHARGE_CONFIRM_REQUEST:
-                mStatusChangeList.add("Reject Order");
+            case OR2GO_DELIVERY_STATUS_PICKUP_ONTHEWAY://4
+                mDeliveryStatusChangeList.add("Pickup Done");
+                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
-            case ORDER_STATUS_ACCEPT_CHARGE:
-                mStatusChangeList.add("Confirm Order");
-                mStatusChangeList.add("Reject Order");
+            case OR2GO_DELIVERY_STATUS_PICKUP_DONE://5
+                mDeliveryStatusChangeList.add("OnTheWay For Delivery");
+                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
-            case ORDER_STATUS_DECLINE_CHARGE:
-                mStatusChangeList.add("Reject Order");
+            case OR2GO_DELIVERY_STATUS_DELIVERY_ONTHEWAY://6
+                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
-            case ORDER_STATUS_CONFIRMED:
-                mStatusChangeList.add("Out For Delivery");
-                mStatusChangeList.add("Delivery Assistant Assign");
+            case OR2GO_DELIVERY_STATUS_DELIVERY_FAIL://7
+                mDeliveryStatusChangeList.add("Delivery Retry");
+                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
-            case ORDER_STATUS_PICKED_UP:
-                mStatusChangeList.add("Delivery Complete");
-                break;
-            case ORDER_STATUS_REJECTED:
-                mStatusChangeList.add("Delete Order");
-                break;
-            case ORDER_STATUS_CANCEL_REQUEST:
-                mStatusChangeList.add("Confirm Cancellation");
+            case OR2GO_DELIVERY_STATUS_DELIVERY_RETRY://8
+                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             default:
                 break;
@@ -750,7 +782,7 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_CHARGE_CONFIRM_REQUEST , "Conformation of Delivery Charge Requested ");
         put(ORDER_STATUS_ACCEPT_CHARGE, "Delivery Charge Accepted");
         put(ORDER_STATUS_DECLINE_CHARGE , "Delivery Charge Declined");
-//        put(ORDER_STATUS_ON_DELIVERY , "Order Is Out On delivery");
+        put(ORDER_STATUS_ON_DELIVERY , "Order Is Out On delivery");
         put(ORDER_STATUS_COMPLETE, "Order Delivery Completed");
         put(ORDER_STATUS_READY, "Order is Ready");
         put(ORDER_STATUS_PICKED_UP , "Order Is Out On delivery");
@@ -779,8 +811,15 @@ public class Or2goOrderInfo {
         put(OR2GO_ORDERTYPE_DELIVERY, "Delivery");
         put(OR2GO_ORDERTYPE_PICKUP, "Pickup");
         put(OR2GO_ORDERTYPE_BOOKING, "Pre Order/Booking");
-        //put(OR2GO_ORDER_TAKEAWAY, "TakeAway");
+//        put(OR2GO_ORDER_TAKEAWAY, "TakeAway");
     }};
+    //according to DA
+//    HashMap<Integer, String> mapTypeDescription = new HashMap<Integer, String>() {{
+//        put(OR2GO_ORDER_DELIVERY_ASAP, "Deliver ASAP");
+//        put(OR2GO_ORDER_DELIVERY_BOOK, "Pre Order/Booking");
+//        put(OR2GO_ORDER_PICKUP, "Pickup");
+//        put(OR2GO_ORDER_TAKEAWAY, "TakeAway");
+//    }};
 
     HashMap<Integer, String> mapDeliveryStatusDescription = new HashMap<Integer, String>() {{
         put(OR2GO_DELIVERY_STATUS_NONE, "NA.");

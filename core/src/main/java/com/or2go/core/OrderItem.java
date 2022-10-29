@@ -11,13 +11,13 @@ public class OrderItem {
     //private String brandname;
     private Float itemPrice;
     private Float  itemQnty;
-    //private Integer itemPriceUnit;
+    private Integer itemPriceUnit;
     private Integer itemOrderUnit;
     private Integer orderType;
     private String orderAmount;
-    //private Integer orderStatus;
-    //private Integer taxInclusive;
-    //private Float   taxRate;
+    private Integer orderStatus;
+    private Integer taxInclusive;
+    private Float   taxRate;
 
     private Float RateNumber;
     private String FeebackText;
@@ -46,15 +46,17 @@ public class OrderItem {
         this.mProduct = null;
         this.unitMgr = new UnitManager();
         this.curStock = Float.valueOf("-1");
+        this.orderStatus = 0;
+//        this.itemPriceUnit = priceunit;
     }
 
     public void setProductInfo(ProductInfo prod)
     { mProduct=prod;}
 
-    /*public void setName(String name)
+    public void setName(String name)
     {
         itemName = name;
-    }*/
+    }
     public String getName() { return itemName; }
 
     //public void setBrandName(String name) { brandname = name; }
@@ -72,8 +74,8 @@ public class OrderItem {
         return itemPrice;
     }
 
-    //public void setTaxInclusive(int taxincl) { taxInclusive = taxincl;}
-    //public void setTaxRate(Float rate) { taxRate = rate;}
+    public void setTaxInclusive(int taxincl) { taxInclusive = taxincl;}
+    public void setTaxRate(Float rate) { taxRate = rate;}
     public boolean isTaxInclusive() { return ((mProduct.taxincl ==1) ? true: false);}
     public Float getTaxRate() {return mProduct.taxrate;}
 
@@ -84,6 +86,19 @@ public class OrderItem {
     public void setQnty(Float qnty)
     {
         itemQnty = qnty;
+    }
+    public String getQnty()
+    {
+        //if (itemOrderUnit.equals("Pc"))
+        if (itemOrderUnit == GPOS_PROD_UNIT_PC)
+        {
+            float f = itemQnty;
+            Integer nqnty = (int) f;
+
+            return nqnty.toString();
+        }
+        else
+            return itemQnty.toString();
     }
 
     //public void setPriceId(Integer id) { itemPriceId = id;}
@@ -107,20 +122,6 @@ public class OrderItem {
 
     public void setCurStock(Float stk) {curStock= stk;}
     public Float getCurStock(){return curStock;}
-
-    public String getQnty()
-    {
-        //if (itemOrderUnit.equals("Pc"))
-        if (itemOrderUnit == GPOS_PROD_UNIT_PC)
-        {
-            float f = itemQnty;
-            Integer nqnty = (int) f;
-
-            return nqnty.toString();
-        }
-        else
-            return itemQnty.toString();
-    }
 
     public Float getQntyVal()
     {
@@ -169,21 +170,21 @@ public class OrderItem {
 
     public Integer getPriceUnit() { return mProduct.unit;/*itemPriceUnit*/ }
 
-    /*public Integer getStatus()
+    public Integer getStatus()
     {
         return orderStatus;
     }
     public void setStatus(Integer sts)
     {
         orderStatus = sts;
-    }*/
+    }
 
     public void addQuantity(Float qnty, Integer orderunit)
     {
         Float newqnty;
-
         ///TBF
         ///if (itemPackType != OR2GO_PRODUCT_PACK_TYPE_NONE)
+//        if (itemOrderUnit == orderunit)  // in DA
         {
             itemQnty = itemQnty + qnty;
         }
@@ -201,6 +202,7 @@ public class OrderItem {
 
         ///TBF
         /////if (itemPackType != OR2GO_PRODUCT_PACK_TYPE_NONE)
+//        if (itemOrderUnit == orderunit) //in DA
         {//make sure remaining quantity remains non-negative
             if (itemQnty >= qnty)
                 itemQnty = itemQnty - qnty;
