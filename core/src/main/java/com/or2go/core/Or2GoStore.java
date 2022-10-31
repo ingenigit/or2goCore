@@ -67,6 +67,8 @@ public class Or2GoStore {
     public String vDiscValue = "";
     public int vDiscType = 0;
 
+    public ArrayList<Integer> vFavProducts;
+
     public boolean isActive;
 
     public Or2GoStore(String id, String name, String svctype, String storetype, String desc, String tags,
@@ -123,6 +125,7 @@ public class Or2GoStore {
         this.mPriceDBState = new StoreDBState(pricedbver);
         this.mSKUDBState = new StoreDBState(skudbver);
 
+        vFavProducts = new ArrayList<Integer>();
         //vLogo = logo;
 
         this.isActive = false;
@@ -161,6 +164,8 @@ public class Or2GoStore {
         mProductDBState = new StoreDBState();
         mPriceDBState = new StoreDBState();
         mSKUDBState = new StoreDBState();
+
+        vFavProducts = new ArrayList<Integer>();
 
         isActive = false;
     }

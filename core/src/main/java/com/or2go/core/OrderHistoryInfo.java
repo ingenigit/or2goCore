@@ -12,24 +12,39 @@ import static com.or2go.core.Or2goConstValues.ORDER_STATUS_PLACED;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_REJECTED;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_REQUEST;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class OrderHistoryInfo {
     public String oId;
     public String oTime;
-    public String oVendor;
+    public String oStore;
     public String oTotal;
     public Integer oStatus;
     public Integer oPaymode;
 
+    private ArrayList<OrderItem> oItemList;
+
+    public OrderHistoryInfo(String id, String store, String time)
+    {
+        oId = id;
+        oTime= time;
+        oStore = store;
+
+        oItemList= new ArrayList<OrderItem>();
+    }
+
     public void setId(String id) { oId=id;}
     public void setTime(String time) { oTime=time;}
-    public void setVendor(String vend) { oVendor=vend;}
+    public void setStore(String vend) { oStore=vend;}
     public void setTotal(String tot) { oTotal=tot;}
     public void setStatus(Integer sts) { oStatus=sts;}
     public  void setPaymode(Integer mode) { oPaymode = mode;}
 
     public String getStatusText() {return mapStatusDescription.get(oStatus);}
+
+    public boolean addOrderedItem(OrderItem item) {oItemList.add(item);return true;}
+    public  ArrayList<OrderItem> getItemList() {return oItemList;}
 
     HashMap<Integer, String> mapStatusDescription = new HashMap<Integer, String>() {{
         put(ORDER_STATUS_REQUEST, "Order Requested");

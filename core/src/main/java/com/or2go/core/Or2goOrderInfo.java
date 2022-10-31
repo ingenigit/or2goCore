@@ -70,7 +70,7 @@ public class Or2goOrderInfo {
     }
     */
 
-    public Or2goOrderInfo(Integer type, String vend, String custid, Integer status, String time,
+    /*public Or2goOrderInfo(Integer type, String vend, String custid, Integer status, String time,
                           String subtotal, String charge, String total,
                           String discount, String addr, String deliloc,
                           Integer paymode, String custreq, boolean accptcharge)
@@ -112,18 +112,18 @@ public class Or2goOrderInfo {
         oItemDetailsImgStatus = 0;
 
 //        oOSM = new OrderStateMachine();
-    }
+    }*/
 
-    public Or2goOrderInfo(String orderid, String appid, Integer type, String vend, String cust, Integer status, String time,
+    public Or2goOrderInfo(String orderid, Integer type, String store, String cust, Integer status, String time,
                           String subtotal, String charge, String total,
                           String discount, String addr, String deliloc,
-                          Integer paymode, String custreq, boolean accptcharge)
+                          Integer paymode, String custreq)
     {
         //oLocId = -1;
         oOr2goId = orderid;
-        oAppId = appid;
+        //oAppId = appid;
         oStatus = status;
-        oStoreId = vend; // oVendorId
+        oStoreId = store; // oVendorId
         oVendorName= ""; //no vendor name
         oCustomer = cust;
         oType = type;
@@ -142,7 +142,7 @@ public class Or2goOrderInfo {
         oDeliveryStatus = OR2GO_DELIVERY_STATUS_NONE;
         oTax= "0";
         oDiscountId=-1;
-        mAccptDeliveryCharge=accptcharge;
+        //mAccptDeliveryCharge=accptcharge;
         oPickupOTP="";
         oItemDetailsType=OR2GO_ORDER_ITEM_DETAIL_REGULAR;
         oItemList = new ArrayList<OrderItem>();
@@ -158,13 +158,14 @@ public class Or2goOrderInfo {
 //        oOSM = new OrderStateMachine();
     }
 
-    public void setVendorName(String vendname) // setStoreName
-    {
-        oVendorName = vendname;
-    }
+    public void setVendorName(String vendname) {oVendorName = vendname;}
+    public String getVendorName() { return oVendorName;}
 
-    public String getVendorName() // getStoreName
-    { return oVendorName;}
+    //public void setStoreName(String store) {oStoreId = store;}
+    //public String getStoreName() { return oStoreId;}
+
+    public void setAppId(String appid) {oAppId = appid;}
+    public String getAppId() { return oAppId;}
 
     public boolean setOrderId(String id)
     {
