@@ -37,7 +37,7 @@ public class Or2goOrderInfo {
 
     public int oDiscountId;
 
-    public boolean mAccptDeliveryCharge;
+    //public boolean mAccptDeliveryCharge;
 
     public String oStatusUpdateMsg;
     public Integer oCancelCode;

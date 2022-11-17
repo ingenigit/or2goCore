@@ -17,11 +17,19 @@ import java.util.HashMap;
 
 public class OrderHistoryInfo {
     public String oId;
+    public Integer oType;
     public String oTime;
+    public String oCompTime;
     public String oStore;
+    public String oSubTotal;
+    public String oDeliveryCharge;
+    public String oDiscount;
+    public String oTax;
     public String oTotal;
+    public String oDeliveryAddress;
     public Integer oStatus;
     public Integer oPaymode;
+    public String oCustReq;
 
     private ArrayList<OrderItem> oItemList;
 
@@ -35,11 +43,18 @@ public class OrderHistoryInfo {
     }
 
     public void setId(String id) { oId=id;}
+    public void setType(Integer type) {oType=type;}
     public void setTime(String time) { oTime=time;}
+    public void setCompletionTime(String time) { oCompTime=time;}
     public void setStore(String vend) { oStore=vend;}
+    public void setSubTotal(String subtot) { oSubTotal=subtot;}
+    public void setDiscount(String disc) { oDiscount=disc;}
+    public void setTax(String tax) { oTax=tax;}
     public void setTotal(String tot) { oTotal=tot;}
     public void setStatus(Integer sts) { oStatus=sts;}
     public  void setPaymode(Integer mode) { oPaymode = mode;}
+    public void setDeliveryCharge(String delicharge) { oDeliveryCharge=delicharge;}
+    public void setDeliveryAddress(String deliaddr) { oDeliveryAddress=deliaddr;}
 
     public String getStatusText() {return mapStatusDescription.get(oStatus);}
 
