@@ -188,6 +188,47 @@ public class CartItem {
             return false;
     }
 
+    public float getItemActualTotal() {
+        float tot=0;
+        float ordrqnty = itemQnty;
+        ProductPriceInfo productPriceInfo = getPriceInfo();
+        if (true) {
+            tot = productPriceInfo.mMaxPrice * ordrqnty;//itemQnty;
+        }
+        else if (mProduct.unit == itemOrderUnit) {
+            tot = productPriceInfo.mMaxPrice * ordrqnty;
+        }
+        else {
+            if (mProduct.unit.equals("Kg") && itemOrderUnit.equals("G"))
+            {
+                tot = (productPriceInfo.mMaxPrice/1000) * ordrqnty;//itemQnty;
+            }
+            else if (mProduct.unit.equals("G") && itemOrderUnit.equals("Kg"))
+            {
+                tot = (productPriceInfo.mMaxPrice * ordrqnty * 1000);
+            }
+            if (mProduct.unit.equals("L") && itemOrderUnit.equals("Ml"))
+            {
+                tot = (productPriceInfo.mMaxPrice/1000) * ordrqnty;//itemQnty;
+            }
+            else if (mProduct.unit.equals("Ml") && itemOrderUnit.equals("L"))
+            {
+                tot = (productPriceInfo.mMaxPrice * ordrqnty * 1000);
+            }
+            if (mProduct.unit.equals("M") && itemOrderUnit.equals("Mm"))
+            {
+                tot = (productPriceInfo.mMaxPrice/1000) * ordrqnty;
+            }
+            else if (mProduct.unit.equals("Mm") && itemOrderUnit.equals("M"))
+            {
+                tot = (productPriceInfo.mMaxPrice * ordrqnty * 1000);
+            }
+        }
+
+        //System.out.println("OrderItem geTotal ="+tot);
+        return tot;
+    }
+
     public float getItemTotal()
     {
         float tot=0;
