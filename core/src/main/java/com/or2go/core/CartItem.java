@@ -43,6 +43,10 @@ public class CartItem {
     {
         return mProduct.name;
     }
+    public String getImage()
+    {
+        return mProduct.imgurl;
+    }
     public String getBrandName()
     {
         return mProduct.brandname;
