@@ -720,13 +720,13 @@ public class Or2goOrderInfo {
 //                break;
             case OR2GO_DELIVERY_STATUS_ASSIGNED://3
                 mDeliveryStatusChangeList.add("OnTheWay For Pickup");
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
-                mDeliveryStatusChangeList.add("Delivery Done");
+                //mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                //mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_PICKUP_ONTHEWAY://4
-                mDeliveryStatusChangeList.add("Pickup Done");
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
-                mDeliveryStatusChangeList.add("Delivery Done");
+                //mDeliveryStatusChangeList.add("Pickup Done");
+                //mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                //mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_PICKUP_DONE://5
                 mDeliveryStatusChangeList.add("OnTheWay For Delivery");
