@@ -719,7 +719,7 @@ public class Or2goOrderInfo {
 //                mStatusChangeList.add("Confirm Cancellation");
 //                break;
             case OR2GO_DELIVERY_STATUS_ASSIGNED://3
-                mDeliveryStatusChangeList.add("OnTheWay For Pickup");
+                //mDeliveryStatusChangeList.add("OnTheWay For Pickup");
                 //mDeliveryStatusChangeList.add("Delivery Attempt Failed");
                 //mDeliveryStatusChangeList.add("Delivery Done");
                 break;
