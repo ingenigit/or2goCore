@@ -11,6 +11,7 @@ public class OrderAssignInfo {
     public String ordDeliveryAddress;
     public String ordDescription;
     public String assignRequestTime;
+    public String assignAcceptDist;
 
     public OrderAssignInfo(String ordid, String cust, String storeid, String store, String vendaddr, String deliaddr, String deliplace, String reqtime){
         this.ordId = ordid;
@@ -40,4 +41,10 @@ public class OrderAssignInfo {
     public String getCustomer() { return ordCust;}
     public String getDeliAddr() { return ordDeliveryAddress;}
     public String getDeliPlace() { return ordDeliveryPlace;}
+    public String getAssignAcceptDist() {
+        return assignAcceptDist;
+    }
+    public void setAssignAcceptDist(String assignAcceptDist) {
+        this.assignAcceptDist = assignAcceptDist;
+    }
 }
