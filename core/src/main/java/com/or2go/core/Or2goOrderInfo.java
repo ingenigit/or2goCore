@@ -55,6 +55,8 @@ public class Or2goOrderInfo {
     private ArrayList<String> mStatusChangeList;
     private ArrayList<String> mDeliveryStatusChangeList;
 //    OrderStateMachine oOSM;
+    //DA
+    private String daAcceptTotalDistance;
 
     /*
     Or2goOrderInfo()
@@ -612,6 +614,14 @@ public class Or2goOrderInfo {
         }
 
         oSubTotal = newsubotal.toString();
+    }
+
+    public String getDaAcceptTotalDistance() {
+        return daAcceptTotalDistance;
+    }
+
+    public void setDaAcceptTotalDistance(String daAcceptTotalDistance) {
+        this.daAcceptTotalDistance = daAcceptTotalDistance;
     }
 
     public void calcGrandTotal()
