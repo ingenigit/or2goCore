@@ -183,7 +183,6 @@ public class Or2goOrderInfo {
     public boolean setLocalId(int reqid)
     {
         oLocId = reqid;
-
         return true;
     }
 
@@ -368,14 +367,11 @@ public class Or2goOrderInfo {
     public int delOrderItem(int itemno)
     {
         int orderlistsize = oItemList.size();
-
         if ((itemno < 0) || (itemno >= orderlistsize))
         {
             return -1;
         }
-
         oItemList.remove(itemno);
-
         return 0;
     }
 
@@ -400,18 +396,14 @@ public class Or2goOrderInfo {
             oDiscount="";
             calcGrandTotal();
         }
-
         return true;
     }
 
     public int modifyOrderItem(int itemno, float qnty)
     {
         OrderItem item;
-
         item = oItemList.get(itemno);
-
         item.setQnty(qnty);// = qnty;
-
         return 0;
     }
 
@@ -423,18 +415,14 @@ public class Or2goOrderInfo {
     public boolean setDeliveryCharge(String charge)
     {
         oDeliveryCharge = charge;
-
         Float gtotal = Float.parseFloat(oSubTotal) + Float.parseFloat(oDeliveryCharge);
-
         oTotal = gtotal.toString();
-
         return true;
     }
 
     public boolean setStatusDescription(String msg)
     {
         oStatusUpdateMsg = msg;
-
         return true;
     }
 
@@ -551,11 +539,8 @@ public class Or2goOrderInfo {
             now.add(Calendar.DAY_OF_MONTH, Integer.parseInt(s1));
         }
 
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm", Locale.getDefault());
-
         oDeliveryTime = dateFormat.format(now.getTime());
-
         return true;
     }
 
@@ -612,16 +597,13 @@ public class Or2goOrderInfo {
         //if sales list is empty just add the item
         if ( salelistsz != 0)
         {
-
             //check if the item is already present
             for(i=0;i<salelistsz;i++)
             {
                 OrderItem saleitem = oItemList.get(i);//saleslist.get(i);
-
                 newsubotal = newsubotal + saleitem.getItemTotal();
             }
         }
-
         oSubTotal = newsubotal.toString();
     }
 
@@ -771,7 +753,6 @@ public class Or2goOrderInfo {
         return mDeliveryStatusChangeList;
     }
 
-
     ///state machine API
 //    public void registerOrder()
 //    {
@@ -793,7 +774,6 @@ public class Or2goOrderInfo {
         }
     }*/
 
-
     HashMap<Integer, String> mapStatusDescription = new HashMap<Integer, String>() {{
         put(ORDER_STATUS_REQUEST, "Order Request in procerss.");
         put(ORDER_STATUS_PLACED, "Order Placed. Waiting to be confirmed.");
@@ -811,8 +791,6 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_FORCE_CANCELLED, "Service Provider Cancelled The Order.");
         put(ORDER_STATUS_CONFIRM_REQUEST, "Order Invoice Needs To Be Confirmed By User.");
         put(ORDER_STATUS_PREPAYMENT_REQUEST, "Advance Online Payment Required.");
-
-
     }};
 
 
