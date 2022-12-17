@@ -62,6 +62,7 @@ public class Or2GoStore {
     public ArrayList<String> vClosedDays;
 
     public String[] vTags;
+    public String vFavItemList;
 
     //Discount Information
     public String vDiscValue = "";
@@ -257,6 +258,19 @@ public class Or2GoStore {
         mProductDBState.setVersion(ver);
         return true;
     }
+
+    public void setFavItemList(String favlist) { vFavItemList = favlist;}
+    public boolean processFavItemsList()
+    {
+        String[] favlist = vFavItemList.split(",");
+        int len = favlist.length;
+        for(int i=0; i<len;i++)
+        { vFavProducts.set(i, Integer.parseInt(favlist[i]));}
+
+        return true;
+    }
+
+    public ArrayList<Integer> getFavItems() {return vFavProducts;}
 
     //public Integer getInfoVersion() { return mDBState.getInfoVer();}
     //public Integer getProductDBVersion() { return mDBState.getProductVer(); }

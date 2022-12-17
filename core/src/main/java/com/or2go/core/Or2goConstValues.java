@@ -137,6 +137,8 @@ public class Or2goConstValues {
     public static final int ORDER_STATUS_PREPAYMENT_REQUEST = 10;
     public static final int ORDER_STATUS_READY = 11;
 
+    public static final int ORDER_STATUS_CONFIRM_COND_PREPAYMENT = 12;
+
     public static final int ORDER_STATUS_COMPLETE = 20;
     public static final int ORDER_STATUS_CANCELLED = 21;
     public static final int ORDER_STATUS_REJECTED = 22;

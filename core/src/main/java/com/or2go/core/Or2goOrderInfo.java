@@ -37,6 +37,9 @@ public class Or2goOrderInfo {
 
     public int oDiscountId;
 
+    public Integer oStorePayOption;
+    public Integer oStoreConfirmationPolicy;
+
     //public boolean mAccptDeliveryCharge;
 
     public String oStatusUpdateMsg;
@@ -287,6 +290,12 @@ public class Or2goOrderInfo {
 
     public void setPickupOTP(String otp) { oPickupOTP = otp;}
     public String getPickupOTP() { return oPickupOTP;}
+
+    public void setStorePaymentOption(Integer payoption ) {oStorePayOption=payoption;};
+    public  Integer getStorePaymentOption() {return  oStorePayOption;}
+
+    public void setStoreConfirmationPolicy(Integer confpolicy ) {oStoreConfirmationPolicy=confpolicy;};
+    public  Integer getStoreConfirmationPolicy() {return  oStoreConfirmationPolicy;}
 
     public boolean setItemList(ArrayList <OrderItem> itemlist)
     {
@@ -641,7 +650,7 @@ public class Or2goOrderInfo {
                 mStatusChangeList.add("Confirm Order");
                 mStatusChangeList.add("Reject Order");
                 break;
-            case ORDER_STATUS_CHARGE_CONFIRM_REQUEST:
+            case ORDER_STATUS_CONFIRM_COND_PREPAYMENT:
                 mStatusChangeList.add("Reject Order");
                 break;
             case ORDER_STATUS_ACCEPT_CHARGE:
