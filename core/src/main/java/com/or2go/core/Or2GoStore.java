@@ -97,7 +97,7 @@ public class Or2GoStore {
         this.vClosedReason = "";
         this.vShutDownType = 0;
         this.geolocation = geoLocation;
-
+        this.vFavItemList="";
         this.vClosedDates = new ArrayList<String>();
         this.vClosedDays = new ArrayList<String>();
 
@@ -110,6 +110,8 @@ public class Or2GoStore {
 
         if ((vClosedOn != null) && (!vClosedOn.isEmpty())) {
             processClosingInfo();
+
+
         }
 
 
@@ -263,7 +265,12 @@ public class Or2GoStore {
     public String getFavItems() { return vFavItemList;}
     public boolean processFavItemsList()
     {
-        String[] favlist = vFavItemList.split(",");
+        if (vFavItemList.isEmpty()) return false;
+
+        String rawlist1 = vFavItemList.replace("[","");
+        String rawlist2 = rawlist1.replace("]","");
+
+        String[] favlist = rawlist2.split(",");
         int len = favlist.length;
         for(int i=0; i<len;i++)
         { vFavProducts.set(i, Integer.parseInt(favlist[i]));}
