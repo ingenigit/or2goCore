@@ -273,7 +273,7 @@ public class Or2GoStore {
         String[] favlist = rawlist2.split(",");
         int len = favlist.length;
         for(int i=0; i<len;i++)
-        { vFavProducts.set(i, Integer.parseInt(favlist[i]));}
+        { vFavProducts.add(Integer.parseInt(favlist[i]));}
 
         return true;
     }
