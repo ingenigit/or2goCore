@@ -259,7 +259,8 @@ public class Or2GoStore {
         return true;
     }
 
-    public void setFavItemList(String favlist) { vFavItemList = favlist;}
+    public void setFavItems(String favlist) { vFavItemList = favlist;}
+    public String getFavItems() { return vFavItemList;}
     public boolean processFavItemsList()
     {
         String[] favlist = vFavItemList.split(",");
@@ -270,7 +271,7 @@ public class Or2GoStore {
         return true;
     }
 
-    public ArrayList<Integer> getFavItems() {return vFavProducts;}
+    public ArrayList<Integer> getFavItemsList() {return vFavProducts;}
 
     //public Integer getInfoVersion() { return mDBState.getInfoVer();}
     //public Integer getProductDBVersion() { return mDBState.getProductVer(); }
