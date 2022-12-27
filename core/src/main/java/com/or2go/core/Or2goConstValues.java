@@ -163,6 +163,9 @@ public class Or2goConstValues {
     public static final int OR2GO_EVENT_ORDER_REJECT= 3;
     public static final int OR2GO_EVENT_ORDER_CANCEL= 4;
 
+    public static final int OR2GO_EVENT_ORDER_CONFIRM_COND_PREPAY=20;
+    public static final int OR2GO_EVENT_PAYMENT_COMPLETE_COND_PREPAY=21;
+
     public static final int EV_ORDER_DA_ON_PICKUP=4;
     public static final int EV_ORDER_DA_DELIVERY_PICKUP=5;
     public static final int EV_ORDER_DA_ON_DELIVERY=6;
@@ -172,6 +175,7 @@ public class Or2goConstValues {
     public static final int OR2GO_EVENT_ORDER_READY_PICKUP= 10;
     public static final int OR2GO_EVENT_ORDER_PICKUP_DA= 11;
     public static final int OR2GO_EVENT_ORDER_PICKUP_CUSTOMER= 12;
+
 
     public static final int OR2GO_EVENT_ONLINE_PAYMENT_COMPLETE= 1;
     public static final int OR2GO_EVENT_ONLINE_PAYMENT_FAILURE= 2;
