@@ -142,7 +142,10 @@ public class Or2goOrderInfo {
         oDeliveryPlace = deliloc;
         oPayMode = paymode;
         oPayStatus=OR2GO_PAY_STATUS_NONE; //OR2GO_PAY_STATUS_PENDING;
+        oStorePayOption= VENDOR_PAYOPT_NONE;
         oCustReq=custreq;
+
+        oStoreConfirmationPolicy=0;
 
         oDeliveryStatus = OR2GO_DELIVERY_STATUS_NONE;
         oTax= "0";
