@@ -629,7 +629,10 @@ public class Or2goOrderInfo {
         switch (oStatus)
         {
             case ORDER_STATUS_PLACED:
-                mStatusChangeList.add("Confirm Order");
+                if (oStorePayOption == VENDOR_PAYOPT_ONLINE_PREPAY)
+                    mStatusChangeList.add("Confirm Order On PrePayment");
+                else
+                    mStatusChangeList.add("Confirm Order");
                 mStatusChangeList.add("Reject Order");
                 break;
             case ORDER_STATUS_CONFIRM_COND_PREPAYMENT:
