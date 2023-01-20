@@ -8,6 +8,7 @@ public class Or2GoMsgValues {
 
     public static final int OR2GO_MSG_CUSTOMER_ONLINE_PAY_COMPLETE=110;
     public static final int OR2GO_MSG_CUSTOMER_ONLINE_PAY_FAILURE=111;
+    public static final int OR2GO_MSG_CUSTOMER_ONLINE_PREPAY_COMPLETE=112;
 
     public static final int OR2GO_MSG_STORE_ORDER_STATUS_UPDATE=201;
     public static final int OR2GO_MSG_STORE_ORDER_PICKUP=202;

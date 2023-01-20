@@ -784,6 +784,7 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_REQUEST, "Order Request in procerss.");
         put(ORDER_STATUS_PLACED, "Order Placed. Waiting to be confirmed.");
         put(ORDER_STATUS_CONFIRMED, "Order Confirmed");
+        put(ORDER_STATUS_CONFIRM_COND_PREPAYMENT, "Order Require PrePayment for Confirmation");
         put(ORDER_STATUS_CANCEL_REQUEST, "Order Cancellation Request");
         put(ORDER_STATUS_CHARGE_CONFIRM_REQUEST , "Conformation of Delivery Charge Requested ");
         put(ORDER_STATUS_ACCEPT_CHARGE, "Delivery Charge Accepted");
