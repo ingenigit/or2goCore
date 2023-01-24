@@ -26,7 +26,7 @@ public class Or2GoDAInfo {
 
     public boolean getActiveStatus() { return daActive;}
 
-    public boolean setLocation(String loc) { daLocation=loc; return true;}
+    public void setLocation(String loc) { this.daLocation=loc;}
     public String getLocation() {return daLocation;}
 
 }
