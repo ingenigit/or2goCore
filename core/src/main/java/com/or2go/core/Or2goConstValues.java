@@ -80,6 +80,7 @@ public class Or2goConstValues {
     ///////////////////
 
     //Order Type Values
+    public static final int OR2GO_ORDERTYPE_NONE = 0;
     public static final int OR2GO_ORDERTYPE_DELIVERY = 1;
     public static final int OR2GO_ORDERTYPE_PICKUP = 2;
     public static final int OR2GO_ORDERTYPE_BOOKING = 3;
@@ -271,6 +272,13 @@ public class Or2goConstValues {
 
     public static final int OR2GO_DELIVERY_ASSIGN_ACCEPT = 2;
     public static final int OR2GO_DELIVERY_ASSIGN_REJECT = 3;
+
+    //Delivery Model Types
+    public static final int OR2GO_DELIVERY_CHARGE_MODEL_NONE=0;
+    public static final int OR2GO_DELIVERY_CHARGE_MODEL_LOCATION=1;
+    public static final int OR2GO_DELIVERY_CHARGE_MODEL_DISTANCE=2;
+    public static final int OR2GO_DELIVERY_CHARGE_MODEL_RANGE=3;
+
 
     //Search Type
     //App Initialization Status
