@@ -40,7 +40,7 @@ public class ProductInfo {
     ///byte[]	imgdata;
 //    public Bitmap	itemimg;
     public String  imgurl;
-    public ArrayList<ProductPriceInfo> mPriceInfoList;
+    //public ArrayList<ProductPriceInfo> mPriceInfoList;
 
     public ArrayList<ProductSKU> mSKUList;
 
@@ -55,7 +55,7 @@ public class ProductInfo {
 
         //imgdata=null;
 //        itemimg = null;
-        mPriceInfoList=null;
+        ///mPriceInfoList=null;
 
         mSKUList = null;
     }
@@ -76,7 +76,7 @@ public class ProductInfo {
         property= prop;
         invcontrol= inv;
 
-        mPriceInfoList= new ArrayList<ProductPriceInfo>();
+        //mPriceInfoList= new ArrayList<ProductPriceInfo>();
         mSKUList = new ArrayList<ProductSKU>();;
     }
 
@@ -118,7 +118,7 @@ public class ProductInfo {
     public String getImageURL() {return  imgurl;}
 
     //Price control functions
-    public synchronized boolean addPriceInfo(ProductPriceInfo priceinfo)
+    /*public synchronized boolean addPriceInfo(ProductPriceInfo priceinfo)
     {
         if (priceinfo== null) return false;
 
@@ -128,18 +128,18 @@ public class ProductInfo {
 
         return true;
 
-    }
+    }*/
 
-    public boolean setPriceInfoList(ArrayList<ProductPriceInfo> pricelist)
+    /*public boolean setPriceInfoList(ArrayList<ProductPriceInfo> pricelist)
     {
         if ((pricelist == null) || (pricelist.size()==0)) return false;
 
         mPriceInfoList.clear();
         mPriceInfoList = pricelist;
         return true;
-    }
+    }*/
 
-    public ArrayList<ProductPriceInfo> getPriceInfoList()
+    /*public ArrayList<ProductPriceInfo> getPriceInfoList()
     {
         return mPriceInfoList;
     }
@@ -160,7 +160,7 @@ public class ProductInfo {
 
         return null;
 
-    }
+    }*/
 
     ///SKU control functions
     public synchronized boolean addSKUInfo(ProductSKU skuinfo)
@@ -200,7 +200,7 @@ public class ProductInfo {
 
 
     //Inventory control functions
-    public boolean setStock(int packid, Float stkval)
+    /*public boolean setStock(int packid, Float stkval)
     {
         ProductPriceInfo pkinfo = getPriceInfo(packid);
         if (pkinfo == null) return false;
@@ -208,5 +208,5 @@ public class ProductInfo {
         pkinfo.mCurStk = stkval;
 
         return true;
-    }
+    }*/
 }

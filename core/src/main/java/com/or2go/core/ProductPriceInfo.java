@@ -1,7 +1,7 @@
 package com.or2go.core;
 
 public class ProductPriceInfo {
-    public Integer mPriceId;
+    //public Integer mPriceId;
     public Integer mProdId;
     public Integer mSKUId;
 
@@ -17,9 +17,9 @@ public class ProductPriceInfo {
 
     UnitManager mUnitMgr = new UnitManager();
 
-    public ProductPriceInfo(Integer priceid, Integer prodid, Integer skuid,Integer unit,  Float amount, Float price, Float mrp, Integer taxincl,
+    public ProductPriceInfo(/*Integer priceid,*/ Integer prodid, Integer skuid,Integer unit,  Float amount, Float price, Float mrp, Integer taxincl,
                             Integer manualprice, Integer dbver) {
-        this.mPriceId = priceid;
+        //this.mPriceId = priceid;
         this.mProdId = prodid;
         this.mSKUId = skuid;
         this.mUnit = unit;

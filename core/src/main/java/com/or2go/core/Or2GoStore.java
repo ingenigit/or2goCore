@@ -48,7 +48,7 @@ public class Or2GoStore {
 
     public StoreDBState mInfoDBState;
     public StoreDBState mProductDBState;
-    public StoreDBState mPriceDBState;
+    //public StoreDBState mPriceDBState;
     public StoreDBState mSKUDBState;
 
     public Integer vProdStatus;
@@ -125,7 +125,7 @@ public class Or2GoStore {
 
         this.mInfoDBState = new StoreDBState(infodbver);
         this.mProductDBState = new StoreDBState(proddbver);
-        this.mPriceDBState = new StoreDBState(pricedbver);
+        //this.mPriceDBState = new StoreDBState(pricedbver);
         this.mSKUDBState = new StoreDBState(skudbver);
 
         vFavProducts = new ArrayList<Integer>();
@@ -165,7 +165,7 @@ public class Or2GoStore {
 
         mInfoDBState = new StoreDBState();
         mProductDBState = new StoreDBState();
-        mPriceDBState = new StoreDBState();
+        //mPriceDBState = new StoreDBState();
         mSKUDBState = new StoreDBState();
 
         vFavProducts = new ArrayList<Integer>();
@@ -229,7 +229,7 @@ public class Or2GoStore {
 
     public Integer getInfoVersion() { return mInfoDBState.getVer(); }
     public Integer getProductDBVersion() { return mProductDBState.getVer(); }
-    public Integer getPriceDBVersion() { return mPriceDBState.getVer(); }
+    //public Integer getPriceDBVersion() { return mPriceDBState.getVer(); }
     public Integer getSKUDBVersion() { return mSKUDBState.getVer(); }
 
 
@@ -289,9 +289,9 @@ public class Or2GoStore {
     public synchronized StoreDBState getProductDBState() {
         return mProductDBState;
     }
-    public synchronized StoreDBState getPriceDBState() {
+    /*public synchronized StoreDBState getPriceDBState() {
         return mPriceDBState;
-    }
+    }*/
     public synchronized StoreDBState getSKUDBState() {
         return mSKUDBState;
     }
@@ -511,9 +511,9 @@ public class Or2GoStore {
 
     public synchronized boolean isDownloadRequired() {
         dumpDBStates();
-        if (mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
-            return true;
-        if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+        /*if (mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+            return true;*/
+        if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
             return true;
         else
             return false;
@@ -529,10 +529,10 @@ public class Or2GoStore {
             System.out.println(" Store Product DB Status="+ mProductDBState.getState()+ " Cur Ver="+mProductDBState.getVer()+ " Req Ver="+mProductDBState.getRequiredVer());
             return OR2GO_STORE_DATA_PRODUCT;
         }
-        if (mPriceDBState.isRequiredDBDownload()) {
+        /*if (mPriceDBState.isRequiredDBDownload()) {
             System.out.println(" Store Price DB Status="+ mPriceDBState.getState()+ " Cur Ver="+mPriceDBState.getVer()+ " Req Ver="+mPriceDBState.getRequiredVer());
             return OR2GO_STORE_DATA_PRICE;
-        }
+        }*/
         if (mSKUDBState.isRequiredDBDownload())
         {   System.out.println(" Store SKU DB Status="+ mSKUDBState.getState()+ " Cur Ver="+mSKUDBState.getVer()+ " Req Ver="+mSKUDBState.getRequiredVer());
             return OR2GO_STORE_DATA_SKU;}
@@ -550,9 +550,9 @@ public class Or2GoStore {
             case OR2GO_STORE_DATA_PRODUCT:
                 mProductDBState.setState(status);
                 break;
-            case OR2GO_STORE_DATA_PRICE:
-                mPriceDBState.setState(status);
-                break;
+            //case OR2GO_STORE_DATA_PRICE:
+            //    mPriceDBState.setState(status);
+            //    break;
             case OR2GO_STORE_DATA_SKU:
                 mSKUDBState.setState(status);
                 break;
@@ -594,7 +594,7 @@ public class Or2GoStore {
     public synchronized void dumpDBStates()
     {
         System.out.println("Product DB State="+mProductDBState.getState()+ " Cur Ver="+mProductDBState.getVer()+" Req Ver="+mProductDBState.getRequiredVer());
-        System.out.println("Price DB State="+mPriceDBState.getState()+ " Cur Ver="+mPriceDBState.getVer()+" Req Ver="+mPriceDBState.getRequiredVer());
+        //System.out.println("Price DB State="+mPriceDBState.getState()+ " Cur Ver="+mPriceDBState.getVer()+" Req Ver="+mPriceDBState.getRequiredVer());
         System.out.println("SKU DB State="+mSKUDBState.getState()+ " Cur Ver="+mSKUDBState.getVer()+" Req Ver="+mSKUDBState.getRequiredVer());
 
     }
@@ -610,9 +610,8 @@ public class Or2GoStore {
 
     public synchronized boolean isServerProductListUpdateDone() {
 
-        //if (vProdStatus == OR2GO_VENDOR_PRODUCTLIST_DONE)
         if ((mProductDBState.getState() == OR2GO_VENDOR_DBSTATUS_UPDATED) &&
-                (mPriceDBState.getState() == OR2GO_VENDOR_DBSTATUS_UPDATED))
+                (mSKUDBState.getState() == OR2GO_VENDOR_DBSTATUS_UPDATED))
             return true;
         else
             return false;

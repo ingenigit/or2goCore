@@ -56,7 +56,7 @@ public class CartItem {
         return itemPrice;
     }
 
-    public boolean isTaxInclusive() { return ((mProduct.getPriceInfo(itemPriceId).mTaxInclusive ==1) ? true: false);}
+    public boolean isTaxInclusive() { return ((mProduct.getSKU(itemSKUId).mTaxInclusive ==1) ? true: false);}
     public Float getTaxRate() {return mProduct.taxrate;}
 
 
@@ -73,7 +73,7 @@ public class CartItem {
     public Integer getPriceId() { return itemPriceId;}
     //public void setSKUId(Integer id) { itemSKUId = id;}
     public Integer getSKUId() { return itemSKUId;}
-    public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
+    //public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
     public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
     public Integer getInvControl() {return  mProduct.invcontrol;}
 
@@ -195,37 +195,38 @@ public class CartItem {
     public float getItemActualTotal() {
         float tot=0;
         float ordrqnty = itemQnty;
-        ProductPriceInfo productPriceInfo = getPriceInfo();
+        //ProductPriceInfo productPriceInfo = getPriceInfo();
+        ProductSKU skuInfo = getSKUInfo();
         if (true) {
-            tot = productPriceInfo.mMaxPrice * ordrqnty;//itemQnty;
+            tot = skuInfo.mMRP * ordrqnty;//itemQnty;
         }
         else if (mProduct.unit == itemOrderUnit) {
-            tot = productPriceInfo.mMaxPrice * ordrqnty;
+            tot = skuInfo.mMRP * ordrqnty;
         }
         else {
             if (mProduct.unit.equals("Kg") && itemOrderUnit.equals("G"))
             {
-                tot = (productPriceInfo.mMaxPrice/1000) * ordrqnty;//itemQnty;
+                tot = (skuInfo.mMRP/1000) * ordrqnty;//itemQnty;
             }
             else if (mProduct.unit.equals("G") && itemOrderUnit.equals("Kg"))
             {
-                tot = (productPriceInfo.mMaxPrice * ordrqnty * 1000);
+                tot = (skuInfo.mMRP* ordrqnty * 1000);
             }
             if (mProduct.unit.equals("L") && itemOrderUnit.equals("Ml"))
             {
-                tot = (productPriceInfo.mMaxPrice/1000) * ordrqnty;//itemQnty;
+                tot = (skuInfo.mMRP/1000) * ordrqnty;//itemQnty;
             }
             else if (mProduct.unit.equals("Ml") && itemOrderUnit.equals("L"))
             {
-                tot = (productPriceInfo.mMaxPrice * ordrqnty * 1000);
+                tot = (skuInfo.mMRP * ordrqnty * 1000);
             }
             if (mProduct.unit.equals("M") && itemOrderUnit.equals("Mm"))
             {
-                tot = (productPriceInfo.mMaxPrice/1000) * ordrqnty;
+                tot = (skuInfo.mMRP/1000) * ordrqnty;
             }
             else if (mProduct.unit.equals("Mm") && itemOrderUnit.equals("M"))
             {
-                tot = (productPriceInfo.mMaxPrice * ordrqnty * 1000);
+                tot = (skuInfo.mMRP * ordrqnty * 1000);
             }
         }
 

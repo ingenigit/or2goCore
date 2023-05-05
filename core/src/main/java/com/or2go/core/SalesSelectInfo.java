@@ -11,7 +11,7 @@ public class SalesSelectInfo {
     private ProductInfo mProduct;
     ///private Float   mQnty;
     public HashMap<Integer, Float> mapQuantity;
-    public Integer mPriceSelectId;
+    //public Integer mPriceSelectId;
     public Integer mSKUSelectId;
 
     public Integer mFoodType;
@@ -28,7 +28,7 @@ public class SalesSelectInfo {
         //mQnty = Float.parseFloat("0");
         mapQuantity = new HashMap<Integer, Float>();
         mSKUSelectId=0;
-        mPriceSelectId=0;
+        //mPriceSelectId=0;
 
         mFoodType=0;
         mVisualTags = new ArrayList<String>();
@@ -44,7 +44,7 @@ public class SalesSelectInfo {
 
     public void setSelSKU(Integer skuid) {mSKUSelectId= skuid;}
     public Integer getSelectedSKU() {return mSKUSelectId;}
-    public Integer getSelectedPrice() {return mPriceSelectId;}
+    //public Integer getSelectedPrice() {return mPriceSelectId;}
 
     public ProductInfo getProduct() { return mProduct;}
     public Integer getId() {return mProduct.id;}
@@ -52,7 +52,7 @@ public class SalesSelectInfo {
     public String getBrand() { return mProduct.brandname;}
     public String getDesc() { return mProduct.desc;}
 
-    public ArrayList<ProductPriceInfo> getPriceList() {return mProduct.getPriceInfoList();}
+    /*public ArrayList<ProductPriceInfo> getPriceList() {return mProduct.getPriceInfoList();}
     public ProductPriceInfo getSelectedPriceInfo() {
         if ((mProduct.getPriceInfoList() ==null) || (mProduct.getPriceInfoList().size()==0)) return null;
         if(mSKUSelectId==0) return mProduct.getPriceInfoList().get(0);
@@ -61,12 +61,12 @@ public class SalesSelectInfo {
         for(int i=0;i<plistsize;i++)
         {
             ProductPriceInfo packinfo = mProduct.getPriceInfoList().get(i);
-            if (packinfo.mPriceId.equals(mPriceSelectId))
+            if (packinfo.mSKUId.equals(mSKUSelectId))
                 return packinfo;
         }
 
         return mProduct.getPriceInfoList().get(0);
-    }
+    }*/
 
     public ArrayList<ProductSKU> getSKUList() {return mProduct.getSKUList();}
     public ProductSKU getSelectedSKUInfo() {
@@ -130,7 +130,7 @@ public class SalesSelectInfo {
         }*/
     }
 
-    public boolean isMultiPack() { return (mProduct.getPriceInfoList().size() > 1) ? true: false;}
+    public boolean isMultiPack() { return (mProduct.getSKUList().size() > 1) ? true: false;}
     public boolean isInventoryControl() { return ((mProduct.invcontrol>0) ? true: false); }
 
 
