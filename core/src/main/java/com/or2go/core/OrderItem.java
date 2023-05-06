@@ -112,7 +112,7 @@ public class OrderItem {
     ///public void setPackInfo(ProductPackInfo pkinfo) { itemPackInfo = pkinfo;}
     ///public ProductPackInfo getPackInfo() { return itemPackInfo;}
     //public void setPriceInfo(ProductPriceInfo priceinfo) { itemPriceInfo = priceinfo;}
-    public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
+    //public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
 
     //public void setSKUInfo(ProductSKU skuinfo) { itemSKUInfo = skuinfo;}
     public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
