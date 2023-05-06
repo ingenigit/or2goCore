@@ -9,7 +9,7 @@ public class ProductInfo {
     public String 	name;
     public String 	brandname;
     public String  shortname;
-    public Integer	type;
+    //public Integer	type;
     public String	category;
     public String	subcategory;
     public String	code;
@@ -24,6 +24,7 @@ public class ProductInfo {
     public Integer	pricetype;
     public Integer	unit;
     public Integer taxincl;
+    public Integer avail;
     public Float   taxrate;
     //Integer varprice;
     public String	discrate;
@@ -49,7 +50,8 @@ public class ProductInfo {
         id = 0;
         name=category=subcategory=code=gstcode=barcode=desc=tag="";
 
-        type=pricetype=unit=taxincl=0;
+        //type=pricetype=unit=
+        taxincl=1;
 
         packtype=OR2GO_PRODUCT_PACK_TYPE_SINGLE;
 
@@ -62,7 +64,8 @@ public class ProductInfo {
 
 
     public ProductInfo(int prdid, String pname, String brand, String pdesc, String cat, String subcat,
-                       String pcode, String hsncode, String pbarcode,String prop, String tags, Integer inv)
+                       String pcode, String hsncode, String pbarcode,String prop, String tags,
+                       Integer taxinc, Integer avl, Integer inv)
     {
         id = prdid;
         name = pname;
@@ -75,6 +78,8 @@ public class ProductInfo {
         barcode=pbarcode;
         property= prop;
         invcontrol= inv;
+        taxincl = taxinc;
+        avail=avl;
 
         //mPriceInfoList= new ArrayList<ProductPriceInfo>();
         mSKUList = new ArrayList<ProductSKU>();;
@@ -89,13 +94,13 @@ public class ProductInfo {
     public void setName(String prdname) { name = prdname;}
     public void setBrandName(String bname) { brandname=bname;}
     public void setDescription(String prddesc) { desc = prddesc;}
-    public void setType(Integer prdtype) { type = prdtype;}
+    //public void setType(Integer prdtype) { type = prdtype;}
     public void setCategory(String prdtype) { category = prdtype;}
     public void setSubCategory(String prdsubtype) { subcategory = prdsubtype;}
-    public void setUnit(Integer prdunit) { unit = prdunit;}
-    public void setPrice(Float prdprice) { price = prdprice;}
-    public void setMaxPrice(Float prdmaxprice) { maxprice = prdmaxprice;}
-    public void setPackType(Integer type) { packtype = type;}
+    //public void setUnit(Integer prdunit) { unit = prdunit;}
+    //public void setPrice(Float prdprice) { price = prdprice;}
+    //public void setMaxPrice(Float prdmaxprice) { maxprice = prdmaxprice;}
+    //public void setPackType(Integer type) { packtype = type;}
     public void setTaxIncl(Integer incl) {taxincl = incl;}
     public void setTaxRate(Float rate) {taxrate = rate;}
     public void setTags(String prtag) { tag = prtag;}

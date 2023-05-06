@@ -11,7 +11,7 @@ public class ProductSKU {
     public Float mAmount;
     public Float   mPrice;
     public Float   mMRP;
-    public Integer mTaxInclusive;
+    //public Integer mTaxInclusive;
     public String  mSize;
     public String  mColor;
     public String  mModel;
@@ -21,8 +21,8 @@ public class ProductSKU {
     public Integer mDBVer;
     //public ProductSKU(Integer id, Integer pid, String name, String desc, Integer unit, /*Integer ucount, Integer uamount,*/ Float amount,
     //                  String size, String color, String model, String weight, String dimen, String pkgtype, Integer dbver)
-    public ProductSKU(Integer id, Integer pid, String name, String desc, Integer unit, Float amount, Float price, Float mrp, Integer taxincl,
-                      String size, String color, String model, String weight, String dimen, String pkgtype, Integer dbver)
+    public ProductSKU(Integer id, Integer pid, String name, String desc, Integer unit, Float amount, Float price, Float mrp,
+                      String size, String color, String model, String weight, String dimen, String pkgtype)
     {
         this.mSKUId = id;
         this.mProdId = pid;
@@ -35,7 +35,7 @@ public class ProductSKU {
         this.mAmount = amount;
         this.mPrice = price;
         this.mMRP = mrp;
-        this.mTaxInclusive=taxincl;
+        //this.mTaxInclusive=taxincl;
 
         this.mSize = size;
         this.mColor = color;
@@ -43,6 +43,6 @@ public class ProductSKU {
         this.mDimension = dimen;
         this.mWeight = weight;
         this.mPkgType = pkgtype;
-        this.mDBVer = dbver;
+        //this.mDBVer = dbver;
     }
 }
