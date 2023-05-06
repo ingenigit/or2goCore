@@ -56,7 +56,7 @@ public class CartItem {
         return itemPrice;
     }
 
-    public boolean isTaxInclusive() { return ((mProduct.getSKU(itemSKUId).mTaxInclusive ==1) ? true: false);}
+    public boolean isTaxInclusive() { return ((mProduct.taxincl ==1) ? true: false);}
     public Float getTaxRate() {return mProduct.taxrate;}
 
 
