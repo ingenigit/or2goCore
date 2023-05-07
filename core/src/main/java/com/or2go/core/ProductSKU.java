@@ -45,4 +45,28 @@ public class ProductSKU {
         this.mPkgType = pkgtype;
         //this.mDBVer = dbver;
     }
+
+    public Float getPrice() { return mPrice;}
+    public Float getMRP() { return mMRP;}
+    public String getMRPStr()
+    {
+        if (mMRP == null) return "";
+        if (mMRP <= mPrice) return "";
+
+        return mMRP.toString();
+    }
+
+    public Float getDiscountValue()
+    {
+        if (mMRP == null) return null;
+        if (mMRP <= mPrice) return null;
+
+        //Float offAmnt = mMaxPrice-mSalePrice;
+        Float discPerc = ((mMRP-mPrice)/mMRP) *100;
+
+        return discPerc;
+    }
+
+    public String getAmount() { return mAmount.toString(); }
+
 }
