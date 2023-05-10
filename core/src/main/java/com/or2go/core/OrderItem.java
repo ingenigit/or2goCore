@@ -22,7 +22,7 @@ public class OrderItem {
     private Float RateNumber;
     private String FeebackText;
 
-    private Integer itemPriceId;
+    //private Integer itemPriceId;
     private Integer itemSKUId;
     //private ProductPriceInfo itemPriceInfo;
     //private ProductSKU itemSKUInfo;
@@ -35,13 +35,13 @@ public class OrderItem {
     //private Integer invControl;
     private Float curStock;
 
-    public OrderItem(int id, String name, Float price, Float qnty, Integer orderunit, int priceid, int skuid) {
+    public OrderItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid) {
         this.itemId = id;
         this.itemName = name;
         this.itemPrice = price;
         this.itemOrderUnit = orderunit;
         this.itemQnty = qnty;
-        this.itemPriceId=priceid;
+        //this.itemPriceId=priceid;
         this.itemSKUId=skuid;
         this.mProduct = null;
         this.unitMgr = new UnitManager();
@@ -102,8 +102,8 @@ public class OrderItem {
     }
 
     //public void setPriceId(Integer id) { itemPriceId = id;}
-    public Integer getPriceId() { return itemPriceId;}
-    //public void setSKUId(Integer id) { itemSKUId = id;}
+    //public Integer getPriceId() { return itemPriceId;}
+    public void setSKUId(Integer id) { itemSKUId = id;}
     public Integer getSKUId() { return itemSKUId;}
 
     //public void setPackType(Integer type) { itemPackType = type;}
