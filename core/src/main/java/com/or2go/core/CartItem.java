@@ -15,20 +15,20 @@ public class CartItem {
     public String orderAmount;
 
 
-    public Integer itemPriceId;
+    //public Integer itemPriceId;
     public Integer itemSKUId;
 
     public UnitManager unitMgr;
 
     public Float curStock;
 
-    public CartItem(int id, String name, Float price, Float qnty, Integer orderunit, int priceid, int skuid) {
+    public CartItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid) {
         itemId = id;
         itemName = name;
         itemPrice = price;
         itemOrderUnit = orderunit;
         itemQnty = qnty;
-        itemPriceId=priceid;
+        //itemPriceId=priceid;
         itemSKUId=skuid;
 
         mProduct = null;
@@ -70,8 +70,8 @@ public class CartItem {
     }
 
     //public void setPriceId(Integer id) { itemPriceId = id;}
-    public Integer getPriceId() { return itemPriceId;}
-    //public void setSKUId(Integer id) { itemSKUId = id;}
+    //public Integer getPriceId() { return itemPriceId;}
+    public void setSKUId(Integer id) { itemSKUId = id;}
     public Integer getSKUId() { return itemSKUId;}
     //public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
     public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
