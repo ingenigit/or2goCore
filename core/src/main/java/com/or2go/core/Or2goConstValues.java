@@ -11,6 +11,7 @@ public class Or2goConstValues {
 
     //Server communication message
     public static final int OR2GO_COMM_LOGIN = 1;
+    public static final int OR2GO_COMM_Multi_LOGIN = 1;
     public static final int OR2GO_COMM_LOGOUT = 2;
     public static final int OR2GO_GET_SESSION = 3;
     public static final int OR2GO_REGISTER_OTPREQ = 4;
