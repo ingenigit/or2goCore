@@ -37,6 +37,8 @@ public class ProductInfo {
     public Integer salestatus;
     //inventory control
     public Integer invcontrol;
+    //imagepath
+    public int imagepath;
 
     ///byte[]	imgdata;
 //    public Bitmap	itemimg;
@@ -65,7 +67,7 @@ public class ProductInfo {
 
     public ProductInfo(int prdid, String pname, String brand, String pdesc, String cat, String subcat,
                        String pcode, String hsncode, String pbarcode,String prop, String tags,
-                       Integer taxinc, Integer avl, Integer inv)
+                       Integer taxinc, Integer avl, Integer inv, Integer imgPath)
     {
         id = prdid;
         name = pname;
@@ -80,6 +82,7 @@ public class ProductInfo {
         invcontrol= inv;
         taxincl = taxinc;
         avail=avl;
+        imagepath = imgPath;
 
         //mPriceInfoList= new ArrayList<ProductPriceInfo>();
         mSKUList = new ArrayList<ProductSKU>();;
@@ -106,6 +109,9 @@ public class ProductInfo {
     public void setTags(String prtag) { tag = prtag;}
     public void setImageURL(String url) { imgurl = url;}
     public void setInventoryControl(Integer invctrl) { invcontrol = invctrl;}
+    public void setImagepath(int imagePath) {
+        imagepath = imagePath;
+    }
 
     public void setProductCode(String cd) { code = cd;}
     public void setHSNCode(String cd) { gstcode = cd;}
@@ -117,6 +123,9 @@ public class ProductInfo {
 
     public String getTags() { return tag;}
     public String getDescription() { return desc;}
+    public int getImagepath() {
+        return imagepath;
+    }
 
     public Integer getPacktype() { return  packtype;}
     public Float getMaxPrice() {return  maxprice;}
