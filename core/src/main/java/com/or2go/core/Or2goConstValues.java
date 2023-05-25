@@ -78,6 +78,11 @@ public class Or2goConstValues {
     public static final int OR2GO_DA_ASSIGN_REQUEST_REPLY=130;
     public static final int OR2GO_ORDER_DELIVERY_STATUS_UPDATE=131;
 
+    public static final int OR2GO_COMM_VENDOR_STORE_LIST=200;
+    public static final int OR2GO_COMM_VENDOR_LOGIN=201;
+    public static final int OR2GO_COMM_STORE_LOGIN=202;
+
+
     ///////////////////
 
     //Order Type Values
