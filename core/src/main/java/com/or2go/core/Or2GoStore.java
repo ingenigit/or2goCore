@@ -202,6 +202,40 @@ public class Or2GoStore {
 
     }
 
+    public boolean updateStoreInfo(String name, String svctype, String storetype, String desc, String tags,
+                                   String addr, String place, String locality, String state, Integer status,
+                                   String minorder, String worktime, String closedon,
+                                   Integer proddbver, Integer infodbver, Integer skudbver,
+                                   String geo, String favlist)
+    {
+        vDescription = desc;
+        vServiceType = svctype;
+        vStoreType = storetype;
+        vTagInfo = tags;
+        vAddress = addr;
+        vPlace = place;
+        vLocality = locality;
+        vState = state;
+        geolocation = geo;
+
+        vStatus = status;
+
+        vMinOrd = minorder;
+        vWorkTime = worktime;
+        vClosedOn = closedon;
+
+
+        processWorkingTime();
+        processClosingInfo();
+
+        vFavItemList = favlist;
+
+        mInfoDBState.updateVersion(infodbver);
+
+        return true;
+    }
+
+
     public String getId() {
         return vId;
     }
