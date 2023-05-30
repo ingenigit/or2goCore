@@ -73,9 +73,10 @@ public class Or2GoStore {
     public boolean isActive;
 
     public Or2GoStore(String id, String name, String svctype, String storetype, String desc, String tags,
-                      String addr, String place, String locality, String state, Integer status,
-                      String minorder, String worktime, String closedon,
-                      Integer proddbver, Integer infodbver, Integer pricedbver, Integer skudbver, String geoLocation) {
+                      String addr, String place, String locality, String state, String pin,
+                      Integer status, String minorder, String worktime, String closedon,
+                      Integer proddbver, Integer infodbver, Integer skudbver, String geoLocation,
+                      Integer payopt, Integer orderopt) {
         this.vId = id;
         this.vName = name;
         this.vServiceType = svctype;
@@ -86,6 +87,7 @@ public class Or2GoStore {
         this.vPlace = place;
         this.vLocality = locality;
         this.vState = state;
+        this.vPIN = pin;
 
         this.vStatus = status;
 
@@ -117,8 +119,8 @@ public class Or2GoStore {
 
         this.vProdStatus = OR2GO_VENDOR_PRODUCTLIST_NONE;
 
-
-        this.vOrderControl = 0;
+        this.vOrderPayOption= payopt;
+        this.vOrderControl = orderopt;
 
         //vInfoVersion = infodbver;
         //vProdDbVersion = proddbver;
@@ -147,6 +149,7 @@ public class Or2GoStore {
         vPlace = "";
         vLocality = "";
         vState = "";
+        vPIN="";
         vStatus = 0;
         vMinOrd = "";
         vWorkTime = "";
@@ -181,6 +184,7 @@ public class Or2GoStore {
         vAddress = newinfo.vAddress;
         vPlace = newinfo.vPlace;
         vLocality = newinfo.vLocality;
+        vPIN = newinfo.vPIN;
         geolocation = newinfo.geolocation;
 
         vStatus = newinfo.vStatus;
@@ -193,6 +197,9 @@ public class Or2GoStore {
         vClosedReason = newinfo.vClosedReason;
         vShutDownType = newinfo.vShutDownType;
 
+        vOrderPayOption = newinfo.vOrderPayOption;
+        vOrderControl = newinfo.vOrderControl;
+
         processWorkingTime();
         processClosingInfo();
 
@@ -203,10 +210,9 @@ public class Or2GoStore {
     }
 
     public boolean updateStoreInfo(String name, String svctype, String storetype, String desc, String tags,
-                                   String addr, String place, String locality, String state, Integer status,
-                                   String minorder, String worktime, String closedon,
-                                   Integer proddbver, Integer infodbver, Integer skudbver,
-                                   String geo, String favlist)
+                                   String addr, String place, String locality, String state, String pin,
+                                   Integer status, String minorder, String worktime, String closedon,
+                                   Integer infodbver, String geo, String favlist, Integer payopt, Integer orderopt)
     {
         vDescription = desc;
         vServiceType = svctype;
@@ -216,6 +222,7 @@ public class Or2GoStore {
         vPlace = place;
         vLocality = locality;
         vState = state;
+        vPIN = pin;
         geolocation = geo;
 
         vStatus = status;
@@ -224,6 +231,8 @@ public class Or2GoStore {
         vWorkTime = worktime;
         vClosedOn = closedon;
 
+        vOrderPayOption = payopt;
+        vOrderControl = orderopt;
 
         processWorkingTime();
         processClosingInfo();
