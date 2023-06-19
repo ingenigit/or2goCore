@@ -17,12 +17,13 @@ public class CartItem {
 
     //public Integer itemPriceId;
     public Integer itemSKUId;
+    public Integer imagePath;
 
     public UnitManager unitMgr;
 
     public Float curStock;
 
-    public CartItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid) {
+    public CartItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid, int image) {
         itemId = id;
         itemName = name;
         itemPrice = price;
@@ -30,6 +31,7 @@ public class CartItem {
         itemQnty = qnty;
         //itemPriceId=priceid;
         itemSKUId=skuid;
+        imagePath=image;
 
         mProduct = null;
         unitMgr = new UnitManager();
@@ -94,7 +96,12 @@ public class CartItem {
             return itemQnty.toString();
     }
 
-
+    public void setImagePath(int imagepath){
+        imagePath = imagepath;
+    }
+    public int getImagePath(){
+        return imagePath;
+    }
 
     public Float getQntyVal()
     {
