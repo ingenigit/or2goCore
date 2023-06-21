@@ -18,11 +18,12 @@ public class ProductSKU {
     public String  mDimension;
     public String  mWeight;
     public String  mPkgType;
+    public int mStockStatus;
     public Integer mDBVer;
     //public ProductSKU(Integer id, Integer pid, String name, String desc, Integer unit, /*Integer ucount, Integer uamount,*/ Float amount,
     //                  String size, String color, String model, String weight, String dimen, String pkgtype, Integer dbver)
     public ProductSKU(Integer id, Integer pid, String name, String desc, Integer unit, Float amount, Float price, Float mrp,
-                      String size, String color, String model, String weight, String dimen, String pkgtype)
+                      String size, String color, String model, String weight, String dimen, String pkgtype, Integer stockstatus)
     {
         this.mSKUId = id;
         this.mProdId = pid;
@@ -43,6 +44,7 @@ public class ProductSKU {
         this.mDimension = dimen;
         this.mWeight = weight;
         this.mPkgType = pkgtype;
+        this.mStockStatus = stockstatus;
         //this.mDBVer = dbver;
     }
 
@@ -69,4 +71,7 @@ public class ProductSKU {
 
     public String getAmount() { return mAmount.toString(); }
 
+    public int getStockStatus() {
+        return mStockStatus;
+    }
 }
