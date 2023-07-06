@@ -30,6 +30,7 @@ public class Or2GoStore {
     public String vPlace;
     public String vLocality;
     public Integer vStatus;
+    public Integer vInventoryControl;
     public String vMinOrd;
     public String vWorkTime;
     public String vOpenTime1;
@@ -76,7 +77,7 @@ public class Or2GoStore {
                       String addr, String place, String locality, String state, String pin,
                       Integer status, String minorder, String worktime, String closedon,
                       Integer proddbver, Integer infodbver, Integer skudbver, String geoLocation,
-                      Integer payopt, Integer orderopt) {
+                      Integer payopt, Integer orderopt, Integer invopt) {
         this.vId = id;
         this.vName = name;
         this.vServiceType = svctype;
@@ -90,6 +91,7 @@ public class Or2GoStore {
         this.vPIN = pin;
 
         this.vStatus = status;
+        this.vInventoryControl = invopt;
 
         this.vMinOrd = minorder;
         this.vWorkTime = worktime;
@@ -151,6 +153,7 @@ public class Or2GoStore {
         vState = "";
         vPIN="";
         vStatus = 0;
+        vInventoryControl = 0;
         vMinOrd = "";
         vWorkTime = "";
         vClosedOn = "";
@@ -188,7 +191,7 @@ public class Or2GoStore {
         geolocation = newinfo.geolocation;
 
         vStatus = newinfo.vStatus;
-
+        vInventoryControl = newinfo.vInventoryControl;
         vMinOrd = newinfo.vMinOrd;
         vWorkTime = newinfo.vWorkTime;
         vClosedOn = newinfo.vClosedOn;
@@ -212,7 +215,8 @@ public class Or2GoStore {
     public boolean updateStoreInfo(String name, String svctype, String storetype, String desc, String tags,
                                    String addr, String place, String locality, String state, String pin,
                                    Integer status, String minorder, String worktime, String closedon,
-                                   Integer infodbver, String geo, String favlist, Integer payopt, Integer orderopt)
+                                   Integer infodbver, String geo, String favlist, Integer payopt, Integer orderopt,
+                                   Integer invopt)
     {
         vDescription = desc;
         vServiceType = svctype;
@@ -226,6 +230,7 @@ public class Or2GoStore {
         geolocation = geo;
 
         vStatus = status;
+        vInventoryControl = invopt;
 
         vMinOrd = minorder;
         vWorkTime = worktime;
@@ -269,6 +274,8 @@ public class Or2GoStore {
     public String getClosedon() { return vClosedOn; }
     public Integer getStatus() { return vStatus; }
     public String getGeoLoc() { return geolocation; }
+
+    public Integer getInventoryControl(){return vInventoryControl;}
 
     public Integer getInfoVersion() { return mInfoDBState.getVer(); }
     public Integer getProductDBVersion() { return mProductDBState.getVer(); }
