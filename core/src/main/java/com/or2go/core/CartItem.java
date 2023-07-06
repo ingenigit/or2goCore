@@ -13,16 +13,17 @@ public class CartItem {
     public Integer itemOrderUnit;
     public Integer orderType;
     public String orderAmount;
-
-
+    public Integer taxInclusive;
+    public Float taxRate;
     //public Integer itemPriceId;
     public Integer itemSKUId;
+    public Integer imagePath;
 
     public UnitManager unitMgr;
 
     public Float curStock;
 
-    public CartItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid) {
+    public CartItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid, int image, int taxincl, float taxrate) {
         itemId = id;
         itemName = name;
         itemPrice = price;
@@ -30,7 +31,9 @@ public class CartItem {
         itemQnty = qnty;
         //itemPriceId=priceid;
         itemSKUId=skuid;
-
+        imagePath=image;
+        taxInclusive = taxincl;
+        taxRate = taxrate;
         mProduct = null;
         unitMgr = new UnitManager();
         curStock = Float.valueOf("-1");
@@ -56,9 +59,15 @@ public class CartItem {
         return itemPrice;
     }
 
-    public boolean isTaxInclusive() { return ((mProduct.taxincl ==1) ? true: false);}
-    public Float getTaxRate() {return mProduct.taxrate;}
+    public boolean isTaxInclusive() { return ((taxInclusive ==1) ? true: false);}
+    public Float getTaxRate() {return taxRate;}
 
+    public void setTaxincl(int taxincl){
+        taxInclusive = taxincl;
+    }
+    public void setTaxRate(Float taxrate) {
+        taxRate = taxrate;
+    }
 
     public void setQnty(String qnty)
     {
@@ -94,7 +103,12 @@ public class CartItem {
             return itemQnty.toString();
     }
 
-
+    public void setImagePath(int imagepath){
+        imagePath = imagepath;
+    }
+    public int getImagePath(){
+        return imagePath;
+    }
 
     public Float getQntyVal()
     {

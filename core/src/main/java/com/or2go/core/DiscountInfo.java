@@ -29,13 +29,14 @@ public class DiscountInfo {
 
     public Integer VendOnly;
     public String  DiscVendId;
+    public String StoreId;
 
 
     public int mdUseCount;
     public float mdUsageAmount;
 
     public DiscountInfo(int id, String name, String desc, int type, int scope, float amnt, int amnttype,
-                        String stdt, String enddt, int sts, int usgcnt, float usgamnt)
+                        String stdt, String enddt, int sts, int usgcnt, float usgamnt, String storeid)
     {
         mdId = id;
         mdName=name;
@@ -49,6 +50,7 @@ public class DiscountInfo {
         mdStatus = sts;
         mdUsageAmount = usgamnt;
         mdUseCount = usgcnt;
+        StoreId = storeid;
     }
 
     public boolean isValid()

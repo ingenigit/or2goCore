@@ -120,6 +120,8 @@ public class OrderItem {
     //public void setInventoryControl(Integer inv) { invControl = inv;}
     public Integer getInvControl() {return  mProduct.invcontrol;}
 
+    public Integer getImagePath(){ return mProduct.imagepath; }
+
     public void setCurStock(Float stk) {curStock= stk;}
     public Float getCurStock(){return curStock;}
 
