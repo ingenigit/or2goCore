@@ -30,7 +30,7 @@ public class Or2GoStore {
     public String vPlace;
     public String vLocality;
     public Integer vStatus;
-    public Integer vInventoryControl;
+    public Integer vInventoryControl; //Store setting for inventory control
     public String vMinOrd;
     public String vWorkTime;
     public String vOpenTime1;
