@@ -4,6 +4,5 @@ public class SearchInfo {
     public Integer searchtype;
     public Integer prodid;
     public String name;
-    public String type;
-    public String subtype;
+    public String store;
 }
