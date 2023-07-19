@@ -9,6 +9,10 @@ public class Or2goConstValues {
     public static final int OR2GO_LOGIN_STATUS_FAILED = 2;
     public static final int OR2GO_LOGIN_STATUS_SUCCESS = 3;
 
+    //Server API call syncronization type
+    public static final int OR2GO_COMM_SYNC_API = 1;
+    public static final int OR2GO_COMM_ASYNC_API = 2;
+
     //Server communication message
     public static final int OR2GO_COMM_LOGIN = 1;
     public static final int OR2GO_COMM_Multi_LOGIN = 11;
