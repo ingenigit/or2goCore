@@ -32,7 +32,7 @@ public class OrderItem {
     ///private ProductPackInfo itemPackInfo;
     private UnitManager unitMgr;
 
-    private Integer invControl;
+    //private Integer invControl;
     private Float curStock;
 
     public OrderItem(int id, String name, Float price, Float qnty, Integer orderunit, int skuid) {
@@ -117,8 +117,8 @@ public class OrderItem {
     //public void setSKUInfo(ProductSKU skuinfo) { itemSKUInfo = skuinfo;}
     public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
 
-    public void setInventoryControl(Integer inv) { invControl = inv;}
-    public Integer getInvControl() {return invControl;}
+    //public void setInventoryControl(Integer inv) { invControl = inv;}
+    public Integer getInvControl() {return  mProduct.invcontrol;}
 
     public Integer getImagePath(){ return mProduct.imagepath; }
 

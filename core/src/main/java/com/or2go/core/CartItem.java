@@ -18,7 +18,7 @@ public class CartItem {
     //public Integer itemPriceId;
     public Integer itemSKUId;
     public Integer imagePath;
-
+    private Integer invControl;
     public UnitManager unitMgr;
 
     public Float curStock;
@@ -84,7 +84,8 @@ public class CartItem {
     public Integer getSKUId() { return itemSKUId;}
     //public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
     public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
-    public Integer getInvControl() {return  mProduct.invcontrol;}
+    public void setInventoryControl(Integer inv) { invControl = inv;}
+    public Integer getInvControl() {return  invControl;}
 
     public void setCurStock(Float stk) {curStock= stk;}
     public Float getCurStock(){return curStock;}
