@@ -183,6 +183,7 @@ public class Or2goConstValues {
     public static final int EV_ORDER_DA_DELIVERY_PICKUP=5;
     public static final int EV_ORDER_DA_ON_DELIVERY=6;
     public static final int EV_ORDER_DA_DELIVERY_COMPLETE=7;
+    public static final int EV_ORDER_DA_DELIVERY_FAIL=8;
 
     public static final int OR2GO_EVENT_ORDER_READY_DELIVERY= 9;
     public static final int OR2GO_EVENT_ORDER_READY_PICKUP= 10;
