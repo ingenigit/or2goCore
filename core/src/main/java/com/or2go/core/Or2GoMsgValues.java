@@ -18,4 +18,6 @@ public class Or2GoMsgValues {
     public static final int OR2GO_MSG_DA_ORDER_ASSIGN_ACCEPT=301;
     public static final int OR2GO_MSG_DA_ORDER_ASSIGN_REJECT=302;
     public static final int OR2GO_MSG_DA_ORDER_DELIVERY_STATUS_UPDATE=303;
+    public static final int OR2GO_MSG_STORE_ORDER_ASSIGN_CANCEL=304;
+
 }
