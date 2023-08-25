@@ -40,6 +40,7 @@ public class Or2GoStore {
     public String vState;
     public String vPIN;
     public String geolocation;
+    public String contact;
 
     public String vClosedFrom;
     public String vClosedTill;
@@ -274,6 +275,7 @@ public class Or2GoStore {
     public String getClosedon() { return vClosedOn; }
     public Integer getStatus() { return vStatus; }
     public String getGeoLoc() { return geolocation; }
+    public String getContact() {return contact;}
 
     public Integer getInventoryControl(){return vInventoryControl;}
 
@@ -311,6 +313,7 @@ public class Or2GoStore {
         return true;
     }
 
+    public void setContact(String cont) {contact = cont;}
     public void setFavItems(String favlist) { vFavItemList = favlist;}
     public String getFavItems() { return vFavItemList;}
     public boolean processFavItemsList()
