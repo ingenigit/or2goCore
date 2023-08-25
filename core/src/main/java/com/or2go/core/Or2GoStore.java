@@ -40,7 +40,7 @@ public class Or2GoStore {
     public String vState;
     public String vPIN;
     public String geolocation;
-    public String contact;
+    public String vContact;
 
     public String vClosedFrom;
     public String vClosedTill;
@@ -78,7 +78,7 @@ public class Or2GoStore {
                       String addr, String place, String locality, String state, String pin,
                       Integer status, String minorder, String worktime, String closedon,
                       Integer proddbver, Integer infodbver, Integer skudbver, String geoLocation,
-                      Integer payopt, Integer orderopt, Integer invopt) {
+                      String contact, Integer payopt, Integer orderopt, Integer invopt) {
         this.vId = id;
         this.vName = name;
         this.vServiceType = svctype;
@@ -90,6 +90,7 @@ public class Or2GoStore {
         this.vLocality = locality;
         this.vState = state;
         this.vPIN = pin;
+        this.vContact = contact;
 
         this.vStatus = status;
         this.vInventoryControl = invopt;
@@ -163,6 +164,7 @@ public class Or2GoStore {
         vClosedReason = "";
         vShutDownType = 0;
         geolocation = "";
+        vContact = "";
 
         vClosedDates = new ArrayList<String>();
         vClosedDays = new ArrayList<String>();
@@ -190,6 +192,7 @@ public class Or2GoStore {
         vLocality = newinfo.vLocality;
         vPIN = newinfo.vPIN;
         geolocation = newinfo.geolocation;
+        vContact = newinfo.vContact;
 
         vStatus = newinfo.vStatus;
         vInventoryControl = newinfo.vInventoryControl;
@@ -216,8 +219,8 @@ public class Or2GoStore {
     public boolean updateStoreInfo(String name, String svctype, String storetype, String desc, String tags,
                                    String addr, String place, String locality, String state, String pin,
                                    Integer status, String minorder, String worktime, String closedon,
-                                   Integer infodbver, String geo, String favlist, Integer payopt, Integer orderopt,
-                                   Integer invopt)
+                                   Integer infodbver, String geo, String contact, String favlist,
+                                   Integer payopt, Integer orderopt, Integer invopt)
     {
         vDescription = desc;
         vServiceType = svctype;
@@ -229,6 +232,7 @@ public class Or2GoStore {
         vState = state;
         vPIN = pin;
         geolocation = geo;
+        vContact = contact;
 
         vStatus = status;
         vInventoryControl = invopt;
@@ -275,7 +279,7 @@ public class Or2GoStore {
     public String getClosedon() { return vClosedOn; }
     public Integer getStatus() { return vStatus; }
     public String getGeoLoc() { return geolocation; }
-    public String getContact() {return contact;}
+    public String getContact() {return vContact;}
 
     public Integer getInventoryControl(){return vInventoryControl;}
 
@@ -313,7 +317,7 @@ public class Or2GoStore {
         return true;
     }
 
-    public void setContact(String cont) {contact = cont;}
+    public void setContact(String cont) {vContact = cont;}
     public void setFavItems(String favlist) { vFavItemList = favlist;}
     public String getFavItems() { return vFavItemList;}
     public boolean processFavItemsList()
