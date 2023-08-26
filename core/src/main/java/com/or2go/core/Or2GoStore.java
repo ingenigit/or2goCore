@@ -41,7 +41,6 @@ public class Or2GoStore  {
     public String vState;
     public String vPIN;
     public String geolocation;
-    public String vContact;
 
     public String vClosedFrom;
     public String vClosedTill;
@@ -75,7 +74,7 @@ public class Or2GoStore  {
 
     public boolean isActive;
 
-    public Or2GoStore(String id, String name, String contact, String svctype, String storetype, String desc, String tags,
+    public Or2GoStore(String id, String name, String svctype, String storetype, String desc, String tags,
                       String addr, String place, String locality, String state, String pin,
                       Integer status, String minorder, String worktime, String closedon,
                       Integer proddbver, Integer infodbver, Integer skudbver, String geoLocation,
@@ -92,7 +91,6 @@ public class Or2GoStore  {
         this.vLocality = locality;
         this.vState = state;
         this.vPIN = pin;
-        this.vContact = contact;
 
         this.vStatus = status;
         this.vInventoryControl = invopt;
@@ -147,7 +145,6 @@ public class Or2GoStore  {
     public Or2GoStore(String id, String name) {
         vId = id;
         vName = name;
-        vContact = "";
         vServiceType = "";
         vStoreType = "";
         vDescription = "";
@@ -186,7 +183,6 @@ public class Or2GoStore  {
     }
 
     public boolean updateVendorInfo(Or2GoStore newinfo) {
-        vContact = newinfo.vContact;
         vDescription = newinfo.vDescription;
         vServiceType = newinfo.vServiceType;
         vStoreType = newinfo.vStoreType;
@@ -220,13 +216,12 @@ public class Or2GoStore  {
 
     }
 
-    public boolean updateStoreInfo(String name, String contact, String svctype, String storetype, String desc, String tags,
+    public boolean updateStoreInfo(String name, String svctype, String storetype, String desc, String tags,
                                    String addr, String place, String locality, String state, String pin,
                                    Integer status, String minorder, String worktime, String closedon,
                                    Integer infodbver, String geo, String contact, String favlist,
                                    Integer payopt, Integer orderopt, Integer invopt)
     {
-        vContact = contact;
         vDescription = desc;
         vServiceType = svctype;
         vStoreType = storetype;
@@ -265,9 +260,6 @@ public class Or2GoStore  {
     }
     public String getName() {
         return vName;
-    }
-    public String getContact() {
-        return vContact;
     }
 
     /*public String getType() {
