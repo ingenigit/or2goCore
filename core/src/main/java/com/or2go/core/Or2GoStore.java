@@ -19,11 +19,12 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 
-public class Or2GoStore {
+public class Or2GoStore  {
     public String vId;
     public String vServiceType;
     public String vStoreType;
     public String vName;
+    public String vContact;
     public String vDescription;
     public String vTagInfo;
     public String vAddress;
@@ -73,13 +74,14 @@ public class Or2GoStore {
 
     public boolean isActive;
 
-    public Or2GoStore(String id, String name, String svctype, String storetype, String desc, String tags,
+    public Or2GoStore(String id, String name, String contact, String svctype, String storetype, String desc, String tags,
                       String addr, String place, String locality, String state, String pin,
                       Integer status, String minorder, String worktime, String closedon,
                       Integer proddbver, Integer infodbver, Integer skudbver, String geoLocation,
                       Integer payopt, Integer orderopt, Integer invopt) {
         this.vId = id;
         this.vName = name;
+        this.vContact = contact;
         this.vServiceType = svctype;
         this.vStoreType = storetype;
         this.vDescription = desc;
@@ -143,6 +145,7 @@ public class Or2GoStore {
     public Or2GoStore(String id, String name) {
         vId = id;
         vName = name;
+        vContact = "";
         vServiceType = "";
         vStoreType = "";
         vDescription = "";
@@ -180,6 +183,7 @@ public class Or2GoStore {
     }
 
     public boolean updateVendorInfo(Or2GoStore newinfo) {
+        vContact = newinfo.vContact;
         vDescription = newinfo.vDescription;
         vServiceType = newinfo.vServiceType;
         vStoreType = newinfo.vStoreType;
@@ -212,12 +216,13 @@ public class Or2GoStore {
 
     }
 
-    public boolean updateStoreInfo(String name, String svctype, String storetype, String desc, String tags,
+    public boolean updateStoreInfo(String name, String contact, String svctype, String storetype, String desc, String tags,
                                    String addr, String place, String locality, String state, String pin,
                                    Integer status, String minorder, String worktime, String closedon,
                                    Integer infodbver, String geo, String favlist, Integer payopt, Integer orderopt,
                                    Integer invopt)
     {
+        vContact = contact;
         vDescription = desc;
         vServiceType = svctype;
         vStoreType = storetype;
@@ -255,6 +260,9 @@ public class Or2GoStore {
     }
     public String getName() {
         return vName;
+    }
+    public String getContact() {
+        return vContact;
     }
 
     /*public String getType() {
