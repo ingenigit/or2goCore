@@ -19,11 +19,12 @@ import java.util.Currency;
 import java.util.Date;
 import java.util.Locale;
 
-public class Or2GoStore {
+public class Or2GoStore  {
     public String vId;
     public String vServiceType;
     public String vStoreType;
     public String vName;
+    public String vContact;
     public String vDescription;
     public String vTagInfo;
     public String vAddress;
@@ -40,7 +41,6 @@ public class Or2GoStore {
     public String vState;
     public String vPIN;
     public String geolocation;
-    public String vContact;
 
     public String vClosedFrom;
     public String vClosedTill;
@@ -81,6 +81,7 @@ public class Or2GoStore {
                       String contact, Integer payopt, Integer orderopt, Integer invopt) {
         this.vId = id;
         this.vName = name;
+        this.vContact = contact;
         this.vServiceType = svctype;
         this.vStoreType = storetype;
         this.vDescription = desc;
@@ -90,7 +91,6 @@ public class Or2GoStore {
         this.vLocality = locality;
         this.vState = state;
         this.vPIN = pin;
-        this.vContact = contact;
 
         this.vStatus = status;
         this.vInventoryControl = invopt;

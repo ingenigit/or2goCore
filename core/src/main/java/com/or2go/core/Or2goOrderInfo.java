@@ -651,9 +651,9 @@ public class Or2goOrderInfo {
             case ORDER_STATUS_CONFIRMED:
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
                     if (!isDAAssignRequested() & (!isDAAssigned()))
-                        mStatusChangeList.add("Assign Delivery Assistant");
+                        mStatusChangeList.add("Assign Delivery Boy");
                     else if (isDAAssignRequested())
-                        mStatusChangeList.add("Cancel Delivery Assignment");
+                        mStatusChangeList.add("Cancel Delivery Assign");
                     mStatusChangeList.add("Order Ready");
                 }
                 else if (oType == OR2GO_ORDERTYPE_PICKUP)
@@ -664,9 +664,9 @@ public class Or2goOrderInfo {
             case ORDER_STATUS_READY:
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
                     if (!isDAAssignRequested() & (!isDAAssigned()))
-                        mStatusChangeList.add("Assign Delivery Assistant");
+                        mStatusChangeList.add("Assign Delivery Boy");
                     else if (isDAAssignRequested())
-                        mStatusChangeList.add("Cancel Delivery Assignment");
+                        mStatusChangeList.add("Cancel Delivery Assign");
                     if (isDAAssigned())
                         mStatusChangeList.add("Delivery Pick Up");
                 }
@@ -675,9 +675,9 @@ public class Or2goOrderInfo {
                     mStatusChangeList.add("Order Pick Up");
                 }
                 break;
-            case ORDER_STATUS_PICKED_UP:
-                mStatusChangeList.add("Delivery Complete");
-                break;
+//            case ORDER_STATUS_PICKED_UP:
+//                mStatusChangeList.add("Delivery Complete");
+//                 break;
 //            case ORDER_STATUS_ON_DELIVERY:
 //                mStatusChangeList.add("Delivery Complete");
 //                break;
@@ -828,8 +828,8 @@ public class Or2goOrderInfo {
 
     HashMap<Integer, String> mapDeliveryStatusDescription = new HashMap<Integer, String>() {{
         put(OR2GO_DELIVERY_STATUS_NONE, "NA.");
-        put(OR2GO_DELIVERY_STATUS_ASSIGN_REQUEST, "Assignment Requested.");
-        put(OR2GO_DELIVERY_STATUS_ASSIGN_ACCEPT, "Assignment Accepted");
+        put(OR2GO_DELIVERY_STATUS_ASSIGN_REQUEST, "Assign Requested.");
+        put(OR2GO_DELIVERY_STATUS_ASSIGN_ACCEPT, "Assign Accepted");
         put(OR2GO_DELIVERY_STATUS_ASSIGNED, "Delivery Assigned");
         put(OR2GO_DELIVERY_STATUS_PICKUP_ONTHEWAY , "OnTheWay To Pickup ");
         put(OR2GO_DELIVERY_STATUS_PICKUP_DONE, "Pickup Done");
