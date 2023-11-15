@@ -793,7 +793,7 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_COMPLETE, "Order Delivery Completed");
         put(ORDER_STATUS_READY, "Order is Ready");
         put(ORDER_STATUS_PICKED_UP , "Order Is Out On delivery");
-        put(ORDER_STATUS_CANCELLED, "Order Canceled");
+        put(ORDER_STATUS_CANCELLED, "Order Cancelled");
         put(ORDER_STATUS_REJECTED, "Service Provider Declined The Order.");
         put(ORDER_STATUS_FORCE_CANCELLED, "Service Provider Cancelled The Order.");
         put(ORDER_STATUS_CONFIRM_REQUEST, "Order Invoice Needs To Be Confirmed By User.");
