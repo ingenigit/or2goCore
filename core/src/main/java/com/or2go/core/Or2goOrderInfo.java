@@ -741,17 +741,14 @@ public class Or2goOrderInfo {
                 mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_DELIVERY_ONTHEWAY://6
+            case OR2GO_DELIVERY_STATUS_DELIVERY_RETRY://8
                 mDeliveryStatusChangeList.add("Delivery Attempt Failed");
                 mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_DELIVERY_FAIL://7
                 mDeliveryStatusChangeList.add("Delivery Retry");
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
-                mDeliveryStatusChangeList.add("Delivery Done");
-                break;
-            case OR2GO_DELIVERY_STATUS_DELIVERY_RETRY://8
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
-                mDeliveryStatusChangeList.add("Delivery Done");
+//                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+//                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             default:
                 break;

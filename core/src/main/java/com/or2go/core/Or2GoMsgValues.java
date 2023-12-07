@@ -20,4 +20,6 @@ public class Or2GoMsgValues {
     public static final int OR2GO_MSG_DA_ORDER_DELIVERY_STATUS_UPDATE=303;
     public static final int OR2GO_MSG_STORE_ORDER_ASSIGN_CANCEL=304;
 
+    public static final int OR2GO_MSG_CUSTOMER_FORCED_LOGOUT=400;
+    public static final int OR2GO_MSG_CUSTOMER_FORCEDLOGOUT=401;
 }

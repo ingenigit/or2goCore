@@ -88,6 +88,7 @@ public class Or2goConstValues {
     public static final int OR2GO_COMM_VENDOR_STORE_LIST=200;
     public static final int OR2GO_COMM_VENDOR_LOGIN=201;
     public static final int OR2GO_COMM_STORE_LOGIN=202;
+    public static final int OR2GO_COMM_SESSION_LOGIN=203;
 
 
     ///////////////////
@@ -189,6 +190,8 @@ public class Or2goConstValues {
     public static final int EV_ORDER_DA_ON_DELIVERY=6;
     public static final int EV_ORDER_DA_DELIVERY_COMPLETE=7;
     public static final int EV_ORDER_DA_DELIVERY_FAIL=8;
+    public static final int EV_ORDER_DA_DELIVERY_RETRY=9;
+    public static final int EV_ORDER_DA_DELIVERY_REJECT=10;
 
     public static final int OR2GO_EVENT_ORDER_READY_DELIVERY= 9;
     public static final int OR2GO_EVENT_ORDER_READY_PICKUP= 10;
