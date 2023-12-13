@@ -787,6 +787,8 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_ACCEPT_CHARGE, "Delivery Charge Accepted");
         put(ORDER_STATUS_DECLINE_CHARGE , "Delivery Charge Declined");
         put(ORDER_STATUS_ON_DELIVERY , "Order Is Out On delivery");
+        put(ORDER_STATUS_FAILED , "Delivery attempt failed");
+        put(ORDER_STATUS_RETRY , "Delivery Retry");
         put(ORDER_STATUS_COMPLETE, "Order Delivery Completed");
         put(ORDER_STATUS_READY, "Order is Ready");
         put(ORDER_STATUS_PICKED_UP , "Order Is Out On delivery");

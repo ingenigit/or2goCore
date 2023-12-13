@@ -8,6 +8,7 @@ public class Or2goConstValues {
     public static final int OR2GO_LOGIN_STATUS_INPROGRESS = 1;
     public static final int OR2GO_LOGIN_STATUS_FAILED = 2;
     public static final int OR2GO_LOGIN_STATUS_SUCCESS = 3;
+    public static final int OR2GO_LOGIN_STATUS_ALREADY = 4;
 
     //Server API call syncronization type
     public static final int OR2GO_COMM_SYNC_API = 1;
@@ -154,6 +155,8 @@ public class Or2goConstValues {
 
     public static final int ORDER_STATUS_CONFIRM_COND_PREPAYMENT = 12;
 
+    public static final int ORDER_STATUS_FAILED = 8;
+    public static final int ORDER_STATUS_RETRY = 9;
     public static final int ORDER_STATUS_COMPLETE = 20;
     public static final int ORDER_STATUS_CANCELLED = 21;
     public static final int ORDER_STATUS_REJECTED = 22;
