@@ -24,7 +24,7 @@ public class Or2goConstValues {
 
     public static final int OR2GO_VENDOR_LIST = 6;
     public static final int OR2GO_VENDOR_LIST_PUBLIC = 7;
-    public static final int OR2GO_STORE_LOGIN_INFO = 8;
+    public static final int OR2GO_STORE_LOGIN_INFO = 88;
 
     public static final int OR2GO_COMM_APPINFO = 300;
 
