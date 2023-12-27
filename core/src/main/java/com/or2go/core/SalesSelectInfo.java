@@ -9,6 +9,7 @@ import java.util.List;
 
 public class SalesSelectInfo {
     private ProductInfo mProduct;
+    private ArrayList<ProductSKU> mSKUList;
     ///private Float   mQnty;
     public HashMap<Integer, Float> mapQuantity;
     //public Integer mPriceSelectId;
@@ -20,11 +21,14 @@ public class SalesSelectInfo {
 
     UnitManager mUnitMgr = new UnitManager();
 
-    public SalesSelectInfo(ProductInfo prod)
+    public SalesSelectInfo(ProductInfo prod, ArrayList<ProductSKU> skulist)
     {
         /*super(prod.id, prod.name, prod.brandname, prod.desc, prod.category, prod.subcategory,
                 prod.code, prod.gstcode, prod.barcode, prod.property, prod.tag, prod.invcontrol);*/
         mProduct = prod;
+
+        mSKUList = skulist;
+
         //mQnty = Float.parseFloat("0");
         mapQuantity = new HashMap<Integer, Float>();
         mSKUSelectId=0;
@@ -68,8 +72,9 @@ public class SalesSelectInfo {
         return mProduct.getPriceInfoList().get(0);
     }*/
 
-    public ArrayList<ProductSKU> getSKUList() {return mProduct.getSKUList();}
-    public ProductSKU getSelectedSKUInfo() {
+    public ArrayList<ProductSKU> getSKUList() {return mSKUList;/*mProduct.getSKUList();*/}
+
+    /*public ProductSKU getSelectedSKUInfo() {
         if ((mProduct.getSKUList() ==null) || (mProduct.getSKUList().size()==0)) return null;
         if(mSKUSelectId==0) return mProduct.getSKUList().get(0);
 
@@ -82,6 +87,22 @@ public class SalesSelectInfo {
         }
 
         return mProduct.getSKUList().get(0);
+    }*/
+
+    public ProductSKU getSelectedSKUInfo() {
+        if ((mSKUList ==null) || (mSKUList.size()==0)) return null;
+
+        if(mSKUSelectId==0) return mProduct.getSKUList().get(0);
+
+        int plistsize=mSKUList.size();
+        for(int i=0;i<plistsize;i++)
+        {
+            ProductSKU skuinfo = mSKUList.get(i);
+            if (skuinfo.mSKUId == mSKUSelectId)
+                return skuinfo;
+        }
+
+        return mSKUList.get(0);
     }
 
     /*public boolean setQuantity(Float newqnty) {
@@ -130,7 +151,8 @@ public class SalesSelectInfo {
         }*/
     }
 
-    public boolean isMultiPack() { return (mProduct.getSKUList().size() > 1) ? true: false;}
+    //public boolean isMultiPack() { return (mProduct.getSKUList().size() > 1) ? true: false;}
+    public boolean isMultiPack() { return (mSKUList.size() > 1) ? true: false;}
     public boolean isInventoryControl() { return ((mProduct.invcontrol>0) ? true: false); }
 
 
