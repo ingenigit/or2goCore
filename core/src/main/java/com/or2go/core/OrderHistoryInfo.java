@@ -71,7 +71,7 @@ public class OrderHistoryInfo {
         put(ORDER_STATUS_DECLINE_CHARGE , "Delivery Charge Declined");
         put(ORDER_STATUS_ON_DELIVERY , "Order Is Out On delivery");
         put(ORDER_STATUS_COMPLETE, "Order Delivery Completed");
-        put(ORDER_STATUS_CANCELLED, "Order Canceled");
+        put(ORDER_STATUS_CANCELLED, "Order Cancelled");
         put(ORDER_STATUS_REJECTED, "Service Provider Declined The Order.");
 
     }};

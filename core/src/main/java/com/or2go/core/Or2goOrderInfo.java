@@ -741,17 +741,14 @@ public class Or2goOrderInfo {
                 mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_DELIVERY_ONTHEWAY://6
+            case OR2GO_DELIVERY_STATUS_DELIVERY_RETRY://8
                 mDeliveryStatusChangeList.add("Delivery Attempt Failed");
                 mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_DELIVERY_FAIL://7
                 mDeliveryStatusChangeList.add("Delivery Retry");
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
-                mDeliveryStatusChangeList.add("Delivery Done");
-                break;
-            case OR2GO_DELIVERY_STATUS_DELIVERY_RETRY://8
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
-                mDeliveryStatusChangeList.add("Delivery Done");
+//                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+//                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             default:
                 break;
@@ -790,10 +787,12 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_ACCEPT_CHARGE, "Delivery Charge Accepted");
         put(ORDER_STATUS_DECLINE_CHARGE , "Delivery Charge Declined");
         put(ORDER_STATUS_ON_DELIVERY , "Order Is Out On delivery");
+        put(ORDER_STATUS_FAILED , "Delivery attempt failed");
+        put(ORDER_STATUS_RETRY , "Delivery Retry");
         put(ORDER_STATUS_COMPLETE, "Order Delivery Completed");
         put(ORDER_STATUS_READY, "Order is Ready");
         put(ORDER_STATUS_PICKED_UP , "Order Is Out On delivery");
-        put(ORDER_STATUS_CANCELLED, "Order Canceled");
+        put(ORDER_STATUS_CANCELLED, "Order Cancelled");
         put(ORDER_STATUS_REJECTED, "Service Provider Declined The Order.");
         put(ORDER_STATUS_FORCE_CANCELLED, "Service Provider Cancelled The Order.");
         put(ORDER_STATUS_CONFIRM_REQUEST, "Order Invoice Needs To Be Confirmed By User.");
