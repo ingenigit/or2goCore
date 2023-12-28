@@ -92,7 +92,7 @@ public class SalesSelectInfo {
     public ProductSKU getSelectedSKUInfo() {
         if ((mSKUList ==null) || (mSKUList.size()==0)) return null;
 
-        if(mSKUSelectId==0) return mProduct.getSKUList().get(0);
+        if(mSKUSelectId==0) return mSKUList.get(0);///mProduct.getSKUList().get(0);
 
         int plistsize=mSKUList.size();
         for(int i=0;i<plistsize;i++)
