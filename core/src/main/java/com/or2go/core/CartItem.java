@@ -7,6 +7,7 @@ public class CartItem {
     public String itemName;
 
     public ProductInfo mProduct;
+    public ProductSKU mProductSKU;
 
     public Float itemPrice;
     public Float  itemQnty;
@@ -35,12 +36,15 @@ public class CartItem {
         taxInclusive = taxincl;
         taxRate = taxrate;
         mProduct = null;
+        mProductSKU = null;
         unitMgr = new UnitManager();
         curStock = Float.valueOf("-1");
     }
 
     public void setProductInfo(ProductInfo prod)
     { mProduct=prod;}
+    public void setProductSKU(ProductSKU prodSKU)
+    { mProductSKU = prodSKU;}
 
     public String getName()
     {
@@ -83,7 +87,7 @@ public class CartItem {
     public void setSKUId(Integer id) { itemSKUId = id;}
     public Integer getSKUId() { return itemSKUId;}
     //public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
-    public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
+    public ProductSKU getSKUInfo() { return mProductSKU;}
     public void setInventoryControl(Integer inv) { invControl = inv;}
     public Integer getInvControl() {return  invControl;}
 
