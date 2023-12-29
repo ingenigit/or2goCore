@@ -54,7 +54,7 @@ public class OrderItem {
 
     public void setProductInfo(ProductInfo prod)
     { mProduct=prod;}
-    public void setProductInfo(ProductSKU prodsku)
+    public void setProductSKU(ProductSKU prodsku)
     { mProdsku=prodsku;}
 
     public void setName(String name)
