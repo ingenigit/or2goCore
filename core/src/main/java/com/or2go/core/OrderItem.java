@@ -7,6 +7,7 @@ public class OrderItem {
     private String itemName;
 
     private ProductInfo mProduct;
+    private ProductSKU mProdsku;
 
     //private String brandname;
     private Float itemPrice;
@@ -44,6 +45,7 @@ public class OrderItem {
         //this.itemPriceId=priceid;
         this.itemSKUId=skuid;
         this.mProduct = null;
+        this.mProdsku = null;
         this.unitMgr = new UnitManager();
         this.curStock = Float.valueOf("-1");
         this.orderStatus = 0;
@@ -52,6 +54,8 @@ public class OrderItem {
 
     public void setProductInfo(ProductInfo prod)
     { mProduct=prod;}
+    public void setProductInfo(ProductSKU prodsku)
+    { mProdsku=prodsku;}
 
     public void setName(String name)
     {
@@ -115,7 +119,7 @@ public class OrderItem {
     //public ProductPriceInfo getPriceInfo() { return mProduct.getPriceInfo(itemPriceId);}
 
     //public void setSKUInfo(ProductSKU skuinfo) { itemSKUInfo = skuinfo;}
-    public ProductSKU getSKUInfo() { return mProduct.getSKU(itemSKUId);}
+    public ProductSKU getSKUInfo() { return mProdsku;}
 
     //public void setInventoryControl(Integer inv) { invControl = inv;}
     public Integer getInvControl() {return  mProduct.invcontrol;}
