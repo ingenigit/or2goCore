@@ -119,6 +119,7 @@ public class ProductInfo {
 
     public void setProperty(String pt) { property = pt;}
     public void setSaleStatus(int salests) { salestatus = salests;}
+    public void setAvailable (int avail) { avail = avail;}
 
 
     public String getTags() { return tag;}
