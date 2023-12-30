@@ -119,8 +119,10 @@ public class ProductInfo {
 
     public void setProperty(String pt) { property = pt;}
     public void setSaleStatus(int salests) { salestatus = salests;}
-    public void setAvailable (int avail) { avail = avail;}
-
+    public void setAvailable (int available) { avail = available;}
+    public Integer getAvail(){
+        return avail;
+    }
 
     public String getTags() { return tag;}
     public String getDescription() { return desc;}
