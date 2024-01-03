@@ -283,6 +283,7 @@ public class Or2goOrderInfo {
     public void setDeliveryLocation(String loc) { oDeliveryPlace = loc;}
     public String getDeliveryLocation() { return oDeliveryPlace;}
 
+    public void setCustomerReq(String cusreq) { oCustReq = cusreq;}
     public String getCustReq() { return oCustReq;}
 
     public String getDeliveryCharge() { return oDeliveryCharge;}
