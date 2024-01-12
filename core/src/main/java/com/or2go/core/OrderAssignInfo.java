@@ -12,6 +12,7 @@ public class OrderAssignInfo {
     public String ordDescription;
     public String assignRequestTime;
     public String assignAcceptDist;
+    public Integer ordStatus;
 
     public OrderAssignInfo(String ordid, String cust, String storeid, String store, String vendaddr, String deliaddr, String deliplace, String reqtime){
         this.ordId = ordid;
@@ -32,6 +33,14 @@ public class OrderAssignInfo {
     public void setDescription(String desc)
     {
         ordDescription = desc;
+    }
+
+    public Integer getOrdStatus() {
+        return ordStatus;
+    }
+
+    public void setOrdStatus(Integer ordStatus) {
+        this.ordStatus = ordStatus;
     }
 
     public String getOrderId() { return ordId;}
