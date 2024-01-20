@@ -306,6 +306,12 @@ public class Or2goConstValues {
     public static final int OR2GO_DELIVERY_CHARGE_MODEL_DISTANCE=2;
     public static final int OR2GO_DELIVERY_CHARGE_MODEL_RANGE=3;
 
+    //Store Delivery Options
+    public static final int STORE_DELIVERY_OPTION_NONE=0;
+    public static final int STORE_DELIVERY_OPTION_SELF=1;
+    public static final int STORE_DELIVERY_OPTION_DA=2;
+    public static final int STORE_DELIVERY_OPTION_BOTH=3;
+
 
     //Search Type
     //App Initialization Status

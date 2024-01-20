@@ -37,6 +37,7 @@ public class Or2goOrderInfo {
 
     public int oDiscountId;
 
+    public Integer oStoreDeliveryOption;
     public Integer oStorePayOption;
     public Integer oStoreConfirmationPolicy;
 
@@ -143,6 +144,7 @@ public class Or2goOrderInfo {
         oPayMode = paymode;
         oPayStatus=OR2GO_PAY_STATUS_NONE; //OR2GO_PAY_STATUS_PENDING;
         oStorePayOption= VENDOR_PAYOPT_NONE;
+        oStoreDeliveryOption = STORE_DELIVERY_OPTION_NONE;
         oCustReq=custreq;
 
         oStoreConfirmationPolicy=0;
@@ -293,6 +295,9 @@ public class Or2goOrderInfo {
 
     public void setPickupOTP(String otp) { oPickupOTP = otp;}
     public String getPickupOTP() { return oPickupOTP;}
+
+    public void setStoreDeliveryOption(Integer delioption ) {oStoreDeliveryOption=delioption;};
+    public  Integer getStoreDeliveryOption() {return  oStoreDeliveryOption;}
 
     public void setStorePaymentOption(Integer payoption ) {oStorePayOption=payoption;};
     public  Integer getStorePaymentOption() {return  oStorePayOption;}
@@ -651,37 +656,57 @@ public class Or2goOrderInfo {
                 break;
             case ORDER_STATUS_CONFIRMED:
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
-                    if (!isDAAssignRequested() & (!isDAAssigned()))
-                        mStatusChangeList.add("Assign Delivery Boy");
-                    else if (isDAAssignRequested())
-                        mStatusChangeList.add("Cancel Delivery Assign");
+                    if ((oStoreDeliveryOption == STORE_DELIVERY_OPTION_DA) || (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH))
+                    {
+                        if (!isDAAssignRequested() & (!isDAAssigned()))
+                            mStatusChangeList.add("Assign Delivery Assistant");
+                        else if (isDAAssignRequested())
+                            mStatusChangeList.add("Cancel Delivery Assign");
+                    }
                     mStatusChangeList.add("Order Ready");
                 }
                 else if (oType == OR2GO_ORDERTYPE_PICKUP)
                 {
                     mStatusChangeList.add("Order Ready");
                 }
+
+                mStatusChangeList.add("!! Force Cancel !!");
+
                 break;
             case ORDER_STATUS_READY:
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
-                    if (!isDAAssignRequested() & (!isDAAssigned()))
-                        mStatusChangeList.add("Assign Delivery Boy");
-                    else if (isDAAssignRequested())
-                        mStatusChangeList.add("Cancel Delivery Assign");
-                    if (isDAAssigned())
-                        mStatusChangeList.add("Delivery Pick Up");
+                    if ((oStoreDeliveryOption == STORE_DELIVERY_OPTION_DA) || (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH)) {
+                        if (!isDAAssignRequested() & (!isDAAssigned()))
+                            mStatusChangeList.add("Assign Delivery Assistant");
+                        else if (isDAAssignRequested())
+                            mStatusChangeList.add("Cancel Delivery Assign");
+
+                        if (isDAAssigned())
+                            mStatusChangeList.add("Delivery Pick Up");
+                        else if (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH)
+                            mStatusChangeList.add("Self Delivery");
+                    }
+                    else
+                        mStatusChangeList.add("Self Delivery");
                 }
                 else if (oType == OR2GO_ORDERTYPE_PICKUP)
                 {
                     mStatusChangeList.add("Order Pick Up");
                 }
+
+                mStatusChangeList.add("!! Force Cancel !!");
+
                 break;
 //            case ORDER_STATUS_PICKED_UP:
 //                mStatusChangeList.add("Delivery Complete");
 //                 break;
-//            case ORDER_STATUS_ON_DELIVERY:
-//                mStatusChangeList.add("Delivery Complete");
-//                break;
+            case ORDER_STATUS_ON_DELIVERY:
+                if (oStoreDeliveryOption == STORE_DELIVERY_OPTION_SELF) {
+                    mStatusChangeList.add("Delivery Complete");
+                    mStatusChangeList.add("Delivery Failed");
+                    mStatusChangeList.add("Delivery Rejected");
+                }
+                break;
             case ORDER_STATUS_REJECTED:
                 mStatusChangeList.add("Delete Order");
                 break;
@@ -691,41 +716,13 @@ public class Or2goOrderInfo {
         }
         return mStatusChangeList;
     }
+
+    //DA
     public ArrayList<String> getDeliveryStatusChangeList()
     {
         mDeliveryStatusChangeList.clear();
         switch (oDeliveryStatus)
         {
-//            case ORDER_STATUS_PLACED: //2
-//                //if (mAccptCharge)
-//                mStatusChangeList.add("Confirm Order");
-//                //else
-//                //    mStatusChangeList.add("Request Delivery Charge Confirmation");
-//                mStatusChangeList.add("Reject Order");
-//                break;
-//            case ORDER_STATUS_CHARGE_CONFIRM_REQUEST: //5
-//                mStatusChangeList.add("Reject Order");
-//                break;
-//            case ORDER_STATUS_ACCEPT_CHARGE: //6
-//                mStatusChangeList.add("Confirm Order");
-//                mStatusChangeList.add("Reject Order");
-//                break;
-//            case ORDER_STATUS_DECLINE_CHARGE: //7
-//                mStatusChangeList.add("Reject Order");
-//                break;
-//            case ORDER_STATUS_CONFIRMED: //3
-//                mStatusChangeList.add("Out For Delivery");
-//                mStatusChangeList.add("Delivery Assistant Assign");
-//                break;
-//            case ORDER_STATUS_PICKED_UP: //8
-//                mStatusChangeList.add("Delivery Complete");
-//                break;
-//            case ORDER_STATUS_REJECTED: //22
-//                mStatusChangeList.add("Delete Order");
-//                break;
-//            case ORDER_STATUS_CANCEL_REQUEST: //4
-//                mStatusChangeList.add("Confirm Cancellation");
-//                break;
             case OR2GO_DELIVERY_STATUS_ASSIGNED://3
                 //mDeliveryStatusChangeList.add("OnTheWay For Pickup");
                 //mDeliveryStatusChangeList.add("Delivery Attempt Failed");
