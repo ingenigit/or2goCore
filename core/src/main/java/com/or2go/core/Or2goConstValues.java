@@ -197,11 +197,14 @@ public class Or2goConstValues {
     public static final int EV_ORDER_DA_DELIVERY_RETRY=9;
     public static final int EV_ORDER_DA_DELIVERY_REJECT=10;
 
+    public static final int EV_ORDER_SELF_DELIVERY_COMPLETE=11;
+
     public static final int OR2GO_EVENT_ORDER_READY_DELIVERY= 9;
     public static final int OR2GO_EVENT_ORDER_READY_PICKUP= 10;
     public static final int OR2GO_EVENT_ORDER_PICKUP_DA= 11;
     public static final int OR2GO_EVENT_ORDER_PICKUP_CUSTOMER= 12;
     public static final int OR2GO_EVENT_ORDER_FORCE_CANCEL= 13;
+    public static final int OR2GO_EVENT_ORDER_SelF_DELIVERY= 14;
 
     public static final int OR2GO_EVENT_DA_ASSIGN_CANCEL=20;
 
