@@ -162,6 +162,7 @@ public class Or2goConstValues {
     public static final int ORDER_STATUS_CANCELLED = 21;
     public static final int ORDER_STATUS_REJECTED = 22;
     public static final int ORDER_STATUS_FORCE_CANCELLED = 23;
+    public static final int ORDER_STATUS_DELIVERY_FAIL = 24;
 
     //order delivery status values
     public static final int OR2GO_FORCE_CANCEL_CODE_VENDOR_INCOMPLIANCE =1;
