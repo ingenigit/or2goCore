@@ -683,7 +683,7 @@ public class Or2goOrderInfo {
 
                         if (isDAAssigned())
                             mStatusChangeList.add("Delivery Pick Up");
-                        else if (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH)
+                        else if (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH && !isDAAssignRequested())
                             mStatusChangeList.add("Self Delivery");
                     }
                     else
