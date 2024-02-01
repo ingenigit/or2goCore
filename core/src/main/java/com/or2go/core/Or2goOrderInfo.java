@@ -706,6 +706,10 @@ public class Or2goOrderInfo {
                     mStatusChangeList.add("Delivery Failed");
                     //mStatusChangeList.add("Delivery Rejected");
                 }
+                else if (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH && !isDAAssigned()){
+                    mStatusChangeList.add("Delivery Complete");
+                    mStatusChangeList.add("Delivery Failed");
+                }
                 break;
             case ORDER_STATUS_REJECTED:
                 mStatusChangeList.add("Delete Order");
@@ -793,6 +797,7 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_CANCELLED, "Order Cancelled");
         put(ORDER_STATUS_REJECTED, "Service Provider Declined The Order.");
         put(ORDER_STATUS_FORCE_CANCELLED, "Service Provider Cancelled The Order.");
+        put(ORDER_STATUS_DELIVERY_FAIL, "Order Delivery Failed.");
         put(ORDER_STATUS_CONFIRM_REQUEST, "Order Invoice Needs To Be Confirmed By User.");
         put(ORDER_STATUS_PREPAYMENT_REQUEST, "Advance Online Payment Required.");
     }};
