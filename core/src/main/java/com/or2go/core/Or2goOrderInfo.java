@@ -704,7 +704,7 @@ public class Or2goOrderInfo {
                 if (oStoreDeliveryOption == STORE_DELIVERY_OPTION_SELF) {
                     mStatusChangeList.add("Delivery Complete");
                     mStatusChangeList.add("Delivery Failed");
-                    mStatusChangeList.add("Delivery Rejected");
+                    //mStatusChangeList.add("Delivery Rejected");
                 }
                 break;
             case ORDER_STATUS_REJECTED:
