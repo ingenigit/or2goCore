@@ -197,6 +197,7 @@ public class Or2goConstValues {
     public static final int EV_ORDER_DA_DELIVERY_FAIL=8;
     public static final int EV_ORDER_DA_DELIVERY_RETRY=9;
     public static final int EV_ORDER_DA_DELIVERY_REJECT=10;
+    public static final int EV_ORDER_DA_DELIVERY_UNSUCESSFUL=13;
 
     public static final int EV_ORDER_SELF_DELIVERY_COMPLETE=11;
 
