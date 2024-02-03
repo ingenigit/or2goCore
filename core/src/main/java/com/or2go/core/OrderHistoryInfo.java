@@ -7,7 +7,7 @@ import static com.or2go.core.Or2goConstValues.ORDER_STATUS_CHARGE_CONFIRM_REQUES
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_COMPLETE;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_CONFIRMED;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_DECLINE_CHARGE;
-import static com.or2go.core.Or2goConstValues.ORDER_STATUS_DELIVERY_FAIL;
+import static com.or2go.core.Or2goConstValues.ORDER_STATUS_DELIVERY_FAILED;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_FORCE_CANCELLED;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_ON_DELIVERY;
 import static com.or2go.core.Or2goConstValues.ORDER_STATUS_PLACED;
@@ -76,6 +76,6 @@ public class OrderHistoryInfo {
         put(ORDER_STATUS_CANCELLED, "Order Cancelled");
         put(ORDER_STATUS_REJECTED, "Service Provider Declined The Order.");
         put(ORDER_STATUS_FORCE_CANCELLED, "Order Force Cancelled.");
-        put(ORDER_STATUS_DELIVERY_FAIL, "Order Delivery Failed.");
+        put(ORDER_STATUS_DELIVERY_FAILED, "Order Delivery Failed.");
     }};
 }

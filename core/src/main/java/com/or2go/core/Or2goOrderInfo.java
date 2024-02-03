@@ -142,7 +142,7 @@ public class Or2goOrderInfo {
         oAddress = addr;
         oDeliveryPlace = deliloc;
         oPayMode = paymode;
-        oPayStatus=OR2GO_PAY_STATUS_NONE; //OR2GO_PAY_STATUS_PENDING;
+        oPayStatus=ORDER_PAYMENT_NONE; //OR2GO_PAY_STATUS_PENDING;
         oStorePayOption= VENDOR_PAYOPT_NONE;
         oStoreDeliveryOption = STORE_DELIVERY_OPTION_NONE;
         oCustReq=custreq;
@@ -732,11 +732,11 @@ public class Or2goOrderInfo {
                 //mDeliveryStatusChangeList.add("Delivery Attempt Failed");
                 //mDeliveryStatusChangeList.add("Delivery Done");
                 break;
-            case OR2GO_DELIVERY_STATUS_PICKUP_ONTHEWAY://4
+//            case OR2GO_DELIVERY_STATUS_PICKUP_ONTHEWAY://4
                 //mDeliveryStatusChangeList.add("Pickup Done");
                 //mDeliveryStatusChangeList.add("Delivery Attempt Failed");
                 //mDeliveryStatusChangeList.add("Delivery Done");
-                break;
+//                break;
             case OR2GO_DELIVERY_STATUS_PICKUP_DONE://5
                 mDeliveryStatusChangeList.add("OnTheWay For Delivery");
                 mDeliveryStatusChangeList.add("Delivery Attempt Failed");
@@ -789,26 +789,26 @@ public class Or2goOrderInfo {
         put(ORDER_STATUS_ACCEPT_CHARGE, "Delivery Charge Accepted");
         put(ORDER_STATUS_DECLINE_CHARGE , "Delivery Charge Declined");
         put(ORDER_STATUS_ON_DELIVERY , "Order Is Out On delivery");
-        put(ORDER_STATUS_FAILED , "Delivery attempt failed");
-        put(ORDER_STATUS_RETRY , "Delivery Retry");
+        put(EV_ORDER_DA_DELIVERY_UNSUCCESSFUL , "Delivery attempt failed");
+        put(ORDER_STATUS_DELIVERY_REJECTED , "Delivery Retry");
         put(ORDER_STATUS_COMPLETE, "Order Delivery Completed");
         put(ORDER_STATUS_READY, "Order is Ready");
-        put(ORDER_STATUS_PICKED_UP , "Order Is Out On delivery");
+//        put(ORDER_STATUS_PICKED_UP , "Order Is Out On delivery");
         put(ORDER_STATUS_CANCELLED, "Order Cancelled");
         put(ORDER_STATUS_REJECTED, "Service Provider Declined The Order.");
         put(ORDER_STATUS_FORCE_CANCELLED, "Service Provider Cancelled The Order.");
-        put(ORDER_STATUS_DELIVERY_FAIL, "Order Delivery Failed.");
+        put(ORDER_STATUS_DELIVERY_FAILED, "Order Delivery Failed.");
         put(ORDER_STATUS_CONFIRM_REQUEST, "Order Invoice Needs To Be Confirmed By User.");
         put(ORDER_STATUS_PREPAYMENT_REQUEST, "Advance Online Payment Required.");
     }};
 
 
     HashMap<Integer, String> mapPayStatusDescription = new HashMap<Integer, String>() {{
-        put(OR2GO_PAY_STATUS_NONE/*OR2GO_PAY_STATUS_PENDING*/, "COD");
+        put(ORDER_PAYMENT_NONE/*OR2GO_PAY_STATUS_PENDING*/, "COD");
         put(OR2GO_PAY_STATUS_PROCESSING, "Processing Online Payment");
-        put(OR2GO_PAY_STATUS_FAILED_ONLINE, "Online Payment Failed");
+        put(ORDER_PAYMENT_ONLINE_FAILED, "Online Payment Failed");
         put(OR2GO_PAY_STATUS_LOCAL_COMPLETE, "Payment Complete. Updating Data.");
-        put(OR2GO_PAY_STATUS_COMPLETE , "Payment Complete.");
+        put(ORDER_PAYMENT_COMPLETE , "Payment Complete.");
         put(OR2GO_PAY_STATUS_EXTPAY_CONFIRMATION_REQ , "Confirmation Request for Payment.");
         put(OR2GO_PAY_STATUS_EXTPAY_CONFIRMATION_FAILURE , "Payment Confirmation Failed");
 
