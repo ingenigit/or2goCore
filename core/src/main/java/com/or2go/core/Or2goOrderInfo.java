@@ -739,17 +739,18 @@ public class Or2goOrderInfo {
 //                break;
             case OR2GO_DELIVERY_STATUS_PICKUP_DONE://5
                 mDeliveryStatusChangeList.add("OnTheWay For Delivery");
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Unsuccessful");
                 mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             case OR2GO_DELIVERY_STATUS_DELIVERY_ONTHEWAY://6
             case OR2GO_DELIVERY_STATUS_DELIVERY_RETRY://8
-                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Unsuccessful");
                 mDeliveryStatusChangeList.add("Delivery Done");
+                mDeliveryStatusChangeList.add("Delivery Failed");
                 break;
-            case OR2GO_DELIVERY_STATUS_DELIVERY_FAIL://7
+            case OR2GO_DELIVERY_STATUS_DELIVERY_UNSUCCESSFUL://7
                 mDeliveryStatusChangeList.add("Delivery Retry");
-//                mDeliveryStatusChangeList.add("Delivery Attempt Failed");
+                mDeliveryStatusChangeList.add("Delivery Failed");
 //                mDeliveryStatusChangeList.add("Delivery Done");
                 break;
             default:
@@ -836,7 +837,7 @@ public class Or2goOrderInfo {
         put(OR2GO_DELIVERY_STATUS_PICKUP_ONTHEWAY , "OnTheWay To Pickup ");
         put(OR2GO_DELIVERY_STATUS_PICKUP_DONE, "Pickup Done");
         put(OR2GO_DELIVERY_STATUS_DELIVERY_ONTHEWAY , "OnTheWay For Delivery");
-        put(OR2GO_DELIVERY_STATUS_DELIVERY_FAIL , "Delivery Attempt Failed");
+        put(OR2GO_DELIVERY_STATUS_DELIVERY_UNSUCCESSFUL, "Delivery Attempt Failed");
         put(OR2GO_DELIVERY_STATUS_DELIVERY_RETRY, "Delivery Retry");
         put(OR2GO_DELIVERY_STATUS_DELIVERY_DONE, "Delivery DONE");
     }};

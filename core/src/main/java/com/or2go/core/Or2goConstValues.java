@@ -307,9 +307,10 @@ public class Or2goConstValues {
     public static final int OR2GO_DELIVERY_STATUS_DELIVERY_DONE = 9;
     public static final int OR2GO_DELIVERY_STATUS_ASSIGN_REJECT = 10;
     public static final int OR2GO_DELIVERY_STATUS_DELIVERY_REJECT = 11;
+    public static final int OR2GO_DELIVERY_STATUS_DELIVERY_UNSUCCESSFUL = 12;
 
-    public static final int OR2GO_DELIVERY_ASSIGN_ACCEPT = 2;
-    public static final int OR2GO_DELIVERY_ASSIGN_REJECT = 3;
+//    public static final int OR2GO_DELIVERY_ASSIGN_ACCEPT = 2;
+//    public static final int OR2GO_DELIVERY_ASSIGN_REJECT = 3;
 
     //Delivery Model Types
     public static final int OR2GO_DELIVERY_CHARGE_MODEL_NONE=0;
