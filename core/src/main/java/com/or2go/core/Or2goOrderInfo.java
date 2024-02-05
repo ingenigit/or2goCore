@@ -840,6 +840,7 @@ public class Or2goOrderInfo {
         put(OR2GO_DELIVERY_STATUS_DELIVERY_UNSUCCESSFUL, "Delivery Attempt Failed");
         put(OR2GO_DELIVERY_STATUS_DELIVERY_RETRY, "Delivery Retry");
         put(OR2GO_DELIVERY_STATUS_DELIVERY_DONE, "Delivery DONE");
+        put(OR2GO_DELIVERY_STATUS_DELIVERY_FAIL, "Delivery Failed");
     }};
 
     HashMap<Integer, String> mapCancelDescription = new HashMap<Integer, String>() {{
