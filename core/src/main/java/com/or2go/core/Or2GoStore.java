@@ -222,6 +222,7 @@ public class Or2GoStore  {
                                    Integer infodbver, String geo, String contact, String favlist,
                                    Integer payopt, Integer orderopt, Integer invopt)
     {
+        vName = name;
         vDescription = desc;
         vServiceType = svctype;
         vStoreType = storetype;
