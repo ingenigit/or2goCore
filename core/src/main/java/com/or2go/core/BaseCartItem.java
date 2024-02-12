@@ -8,7 +8,7 @@ public class BaseCartItem {
     public Float  itemQnty;
     public Integer itemOrderUnit;
 
-    BaseCartItem(Integer itemid, Integer skuid, Float qnty, Integer unit)
+    public BaseCartItem(Integer itemid, Integer skuid, Float qnty, Integer unit)
     {
         itemId = itemid;
         itemSKUId = skuid;
