@@ -44,6 +44,7 @@ public class CartItemView {
     public boolean isTaxInclusive() { return ((mProduct.taxincl ==1) ? true: false);}
     public Float getTaxRate() {return mProduct.taxrate;}
 
+    public void setQnty(Float qnty) {bcItem.setQnty(qnty);}
     public void setQnty(String qnty) {bcItem.setQnty(Float.parseFloat(qnty));}
     public String getQnty() {return bcItem.getQnty();}
     public Float getQntyVal()
