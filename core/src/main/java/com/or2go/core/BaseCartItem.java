@@ -22,6 +22,15 @@ public class BaseCartItem {
     }
     public Integer getSKUId() { return itemSKUId;}
 
+    public void setQnty(String qnty)
+    {
+        itemQnty = Float.parseFloat(qnty);
+    }
+    public void setQnty(Float qnty)
+    {
+        itemQnty = qnty;
+    }
+
     public String getQnty()
     {
         //if (itemOrderUnit.equals("Pc"))
