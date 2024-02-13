@@ -9,7 +9,7 @@ public class CartItemView {
 
     UnitManager mUnitMgr;
 
-    CartItemView(BaseCartItem baseitem, ProductInfo prdinfo, ProductSKU skuinfo)
+    public CartItemView(BaseCartItem baseitem, ProductInfo prdinfo, ProductSKU skuinfo)
     {
         bcItem = baseitem;
         mProduct = prdinfo;
