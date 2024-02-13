@@ -8,12 +8,16 @@ public class BaseCartItem {
     public Float  itemQnty;
     public Integer itemOrderUnit;
 
+    public Float curStock;
+
     public BaseCartItem(Integer itemid, Integer skuid, Float qnty, Integer unit)
     {
         itemId = itemid;
         itemSKUId = skuid;
         itemQnty = qnty;
         itemOrderUnit = unit;
+
+        curStock = Float.valueOf("-1");
     }
 
     public Integer getId()
@@ -90,6 +94,9 @@ public class BaseCartItem {
     {
         return itemOrderUnit;
     }
+
+    public void setCurStock(Float stk) {curStock= stk;}
+    public Float getCurStock(){return curStock;}
 
 }
 
