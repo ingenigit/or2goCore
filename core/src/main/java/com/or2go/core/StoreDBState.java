@@ -35,7 +35,7 @@ public class StoreDBState {
     }
 
     public synchronized boolean updateVersion(int newver) {
-//        Log.i("Vendor DB State", "cur=" + mCurrentVer + "server ver=" + newver);
+        System.out.println("Store DB State cur=" + mCurrentVer + "New ver=" + newver);
         if (mCurrentVer < newver) {
             mRequiredVer = newver;
             mStatus = OR2GO_DBSTATUS_REQUIRE_UPDATE;

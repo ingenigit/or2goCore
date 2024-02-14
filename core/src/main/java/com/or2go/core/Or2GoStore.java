@@ -569,9 +569,9 @@ public class Or2GoStore  {
 
     public synchronized boolean isDownloadRequired() {
         dumpDBStates();
-        /*if (mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
-            return true;*/
-        if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+
+        //if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+        if (mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
             return true;
         else
             return false;
@@ -651,6 +651,7 @@ public class Or2GoStore  {
 
     public synchronized void dumpDBStates()
     {
+        System.out.println("Info DB State="+mInfoDBState.getState()+ " Cur Ver="+mInfoDBState.getVer()+" Req Ver="+mInfoDBState.getRequiredVer());
         System.out.println("Product DB State="+mProductDBState.getState()+ " Cur Ver="+mProductDBState.getVer()+" Req Ver="+mProductDBState.getRequiredVer());
         //System.out.println("Price DB State="+mPriceDBState.getState()+ " Cur Ver="+mPriceDBState.getVer()+" Req Ver="+mPriceDBState.getRequiredVer());
         System.out.println("SKU DB State="+mSKUDBState.getState()+ " Cur Ver="+mSKUDBState.getVer()+" Req Ver="+mSKUDBState.getRequiredVer());
