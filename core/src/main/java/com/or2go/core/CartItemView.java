@@ -38,6 +38,14 @@ public class CartItemView {
     {
         return mProduct.brandname;
     }
+    public Integer getUnit()
+    {
+        return mProduct.unit;
+    }
+    public BaseCartItem getBCI()
+    {
+        return bcItem;
+    }
     public Float getPrice() {return mSKU.getPrice();}
 
     public Integer getInvControl() {return  mProduct.invcontrol;}
