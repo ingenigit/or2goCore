@@ -1,6 +1,6 @@
 package com.or2go.core;
 
-import static com.or2go.core.UnitManager.GPOS_PROD_UNIT_PC;
+import static com.or2go.core.UnitManager.OR2GO_Unit_Value_PC;
 
 public class CartItemView {
     BaseCartItem bcItem;
@@ -75,7 +75,7 @@ public class CartItemView {
 
     public boolean isWholeItem()
     {
-        if (bcItem.getOrderUnit() == GPOS_PROD_UNIT_PC)
+        if (bcItem.getOrderUnit() == OR2GO_Unit_Value_PC)
             return true;
         else
             return false;

@@ -1,66 +1,65 @@
 package com.or2go.core;
 
+import java.util.HashMap;
 public class UnitManager {
     //product unit type
-    public static final int GPOS_PROD_UNIT_WHOLE = 1;
-    public static final int GPOS_PROD_UNIT_WEIGHT = 2;
-    public static final int GPOS_PROD_UNIT_VOLUME = 3;
-    public static final int GPOS_PROD_UNIT_LENGTH = 4;
+//    public static final int GPOS_PROD_UNIT_WHOLE = 1;
+//    public static final int GPOS_PROD_UNIT_WEIGHT = 2;
+//    public static final int GPOS_PROD_UNIT_VOLUME = 3;
+//    public static final int GPOS_PROD_UNIT_LENGTH = 4;
+//    public static final int GPOS_PROD_UNIT_PC = 1;
+//    public static final int GPOS_PROD_UNIT_KG = 10;
+//    public static final int GPOS_PROD_UNIT_G = 11;
+//    //public static final int GPOS_PROD_UNIT_KG = 12;
+//    public static final int GPOS_PROD_UNIT_L = 20;
+//    public static final int GPOS_PROD_UNIT_ML = 21;
+//    public static final int GPOS_PROD_UNIT_M = 30;
+//    public static final int GPOS_PROD_UNIT_CM = 31;
+//    public static final int GPOS_PROD_UNIT_MM = 32;
+//    public static final int GPOS_PROD_UNIT_PLT = 40;
+//    public static final int GPOS_PROD_UNIT_PEG = 50;
 
-    public static final int GPOS_PROD_UNIT_PC = 1;
-    public static final int GPOS_PROD_UNIT_KG = 10;
-    public static final int GPOS_PROD_UNIT_G = 11;
-    //public static final int GPOS_PROD_UNIT_KG = 12;
+    public static final int OR2GO_Unit_Value_PC=1;
+    public static final int OR2GO_Unit_Value_Package=2;
+    public static final int OR2GO_Unit_Value_KG=10;
+    public static final int OR2GO_Unit_Value_G=11;
+    public static final int OR2GO_Unit_Value_L=20;
+    public static final int OR2GO_Unit_Value_ML=21;
+    public static final int OR2GO_Unit_Value_M=30;
+    public static final int OR2GO_Unit_Value_CM=31;
+    public static final int OR2GO_Unit_Value_MM=32;
+    public static final int OR2GO_Unit_Value_Plt=40;
+    public static final int OR2GO_Unit_Value_HPlate=41;
+    public static final int OR2GO_Unit_Value_FPlate=42;
+    public static final int OR2GO_Unit_Value_PEG=50;
+    public static final int OR2GO_Unit_Value_PEG_S=51;
+    public static final int OR2GO_Unit_Value_PEG_M=52;
+    public static final int OR2GO_Unit_Value_PEG_L=53;
 
-    public static final int GPOS_PROD_UNIT_L = 20;
-    public static final int GPOS_PROD_UNIT_ML = 21;
 
-    public static final int GPOS_PROD_UNIT_M = 30;
-    public static final int GPOS_PROD_UNIT_CM = 31;
-    public static final int GPOS_PROD_UNIT_MM = 32;
-
-    public static final int GPOS_PROD_UNIT_PLT = 40;
-    public static final int GPOS_PROD_UNIT_PEG = 50;
-
-
-    public String getUnitName(int unit)
-    {
-        String unitname="";
-        switch (unit) {
-            case GPOS_PROD_UNIT_PC:
-                unitname = "Pc";
-                break;
-            case GPOS_PROD_UNIT_KG:
-                unitname = "Kg";
-                break;
-            case GPOS_PROD_UNIT_G:
-                unitname = "G";
-                break;
-            case GPOS_PROD_UNIT_L:
-                unitname = "L";
-                break;
-            case GPOS_PROD_UNIT_ML:
-                unitname = "Ml";
-                break;
-            case GPOS_PROD_UNIT_M:
-                unitname = "M";
-                break;
-            case GPOS_PROD_UNIT_CM:
-                unitname = "Cm";
-                break;
-            case GPOS_PROD_UNIT_PLT:
-                unitname = "Plt";
-                break;
-            case GPOS_PROD_UNIT_PEG:
-                unitname = "Peg";
-                break;
-            default:
-                unitname="";
-        }
-
-        return unitname;
+    public String getUnitName(int unit){
+        return mapStatusDescription.get(unit);
     }
 
+    HashMap<Integer, String> mapStatusDescription = new HashMap<Integer, String>() {{
+        put(OR2GO_Unit_Value_PC, "piece");
+        put(OR2GO_Unit_Value_Package, "packet");
+        put(OR2GO_Unit_Value_KG, "kg");
+        put(OR2GO_Unit_Value_G, "g");
+        put(OR2GO_Unit_Value_L, "l");
+        put(OR2GO_Unit_Value_ML, "ml");
+        put(OR2GO_Unit_Value_M, "meter");
+        put(OR2GO_Unit_Value_CM, "cm");
+        put(OR2GO_Unit_Value_MM, "mm");
+        put(OR2GO_Unit_Value_Plt, "plate");
+        put(OR2GO_Unit_Value_HPlate, "half");
+        put(OR2GO_Unit_Value_FPlate, "full");
+        put(OR2GO_Unit_Value_PEG, "peg");
+        put(OR2GO_Unit_Value_PEG_S, "peg small");
+        put(OR2GO_Unit_Value_PEG_M, "peg medium");
+        put(OR2GO_Unit_Value_PEG_L, "peg Large");
+    }};
+/*
     public int getUnitFromName(String unit)
     {
         int nunit=1;
@@ -180,7 +179,6 @@ public class UnitManager {
         return null;
     }
 
-
     public float getConvertedQnty(Float qnty, Integer fromunit, Integer tounit)
     {
         float convamnt = 0;
@@ -217,4 +215,6 @@ public class UnitManager {
 
         return convamnt;
     }
+
+ */
 }
