@@ -588,6 +588,11 @@ public class Or2goOrderInfo {
     public Integer getOrderImageStatus() { return oItemDetailsImgStatus;}
     public void setOrderImageStatus(Integer ordimgsts) { oItemDetailsImgStatus = ordimgsts;}
 
+    public boolean isDeliveryStatusNone() {
+        if (oDeliveryStatus == OR2GO_DELIVERY_STATUS_NONE) return true;
+        else return false;
+    }
+
     public boolean isDAAssigned() {
         if (oDeliveryStatus == OR2GO_DELIVERY_STATUS_ASSIGNED) return true;
         else return false;
@@ -658,7 +663,9 @@ public class Or2goOrderInfo {
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
                     if ((oStoreDeliveryOption == STORE_DELIVERY_OPTION_DA) || (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH))
                     {
-                        if (!isDAAssignRequested() & (!isDAAssigned()))
+                        if (isDeliveryStatusNone())
+                            mStatusChangeList.add("Assign Delivery Assistant");
+                        else if (!isDAAssignRequested() & (!isDAAssigned()))
                             mStatusChangeList.add("Assign Delivery Assistant");
                         else if (isDAAssignRequested())
                             mStatusChangeList.add("Cancel Delivery Assign");
@@ -676,7 +683,9 @@ public class Or2goOrderInfo {
             case ORDER_STATUS_READY:
                 if (oType == OR2GO_ORDERTYPE_DELIVERY) {
                     if ((oStoreDeliveryOption == STORE_DELIVERY_OPTION_DA) || (oStoreDeliveryOption == STORE_DELIVERY_OPTION_BOTH)) {
-                        if (!isDAAssignRequested() & (!isDAAssigned()))
+                        if (isDeliveryStatusNone())
+                            mStatusChangeList.add("Assign Delivery Assistant");
+                        else if (!isDAAssignRequested() & (!isDAAssigned()))
                             mStatusChangeList.add("Assign Delivery Assistant");
                         else if (isDAAssignRequested())
                             mStatusChangeList.add("Cancel Delivery Assign");

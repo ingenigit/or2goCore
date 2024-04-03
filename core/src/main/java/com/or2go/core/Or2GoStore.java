@@ -9,6 +9,7 @@ import static com.or2go.core.Or2goConstValues.OR2GO_STORE_DATA_SKU;
 import static com.or2go.core.Or2goConstValues.OR2GO_STORE_DATA_STOCK;
 import static com.or2go.core.Or2goConstValues.OR2GO_VENDOR_PRODUCTLIST_DOWNLOAD_DONE;
 import static com.or2go.core.Or2goConstValues.OR2GO_VENDOR_PRODUCTLIST_NONE;
+import static com.or2go.core.Or2goConstValues.STORE_DELIVERY_OPTION_NONE;
 import static com.or2go.core.Or2goConstValues.VENDOR_PAYOPT_NONE;
 import static com.or2go.core.VendorDBState.OR2GO_VENDOR_DBSTATUS_UPDATED;
 
@@ -58,6 +59,7 @@ public class Or2GoStore  {
 
     public Integer vOrderControl;
     public Integer vOrderPayOption;
+    public Integer vDeliveryOption;
 
     public String vClosedOn;
     public ArrayList<String> vClosedDates;
@@ -78,7 +80,7 @@ public class Or2GoStore  {
                       String addr, String place, String locality, String state, String pin,
                       Integer status, String minorder, String worktime, String closedon,
                       Integer proddbver, Integer infodbver, Integer skudbver, String geoLocation,
-                      String contact, Integer payopt, Integer orderopt, Integer invopt) {
+                      String contact, Integer payopt, Integer orderopt, Integer invopt, Integer deliopt) {
         this.vId = id;
         this.vName = name;
         this.vContact = contact;
@@ -94,6 +96,7 @@ public class Or2GoStore  {
 
         this.vStatus = status;
         this.vInventoryControl = invopt;
+        this.vDeliveryOption = deliopt;
 
         this.vMinOrd = minorder;
         this.vWorkTime = worktime;
@@ -171,6 +174,7 @@ public class Or2GoStore  {
 
         vProdStatus = OR2GO_VENDOR_PRODUCTLIST_NONE;
         vOrderPayOption= VENDOR_PAYOPT_NONE;
+        vDeliveryOption = STORE_DELIVERY_OPTION_NONE;
 
         mInfoDBState = new StoreDBState();
         mProductDBState = new StoreDBState();
@@ -206,6 +210,7 @@ public class Or2GoStore  {
 
         vOrderPayOption = newinfo.vOrderPayOption;
         vOrderControl = newinfo.vOrderControl;
+        vDeliveryOption = newinfo.vDeliveryOption;
 
         processWorkingTime();
         processClosingInfo();
@@ -220,7 +225,7 @@ public class Or2GoStore  {
                                    String addr, String place, String locality, String state, String pin,
                                    Integer status, String minorder, String worktime, String closedon,
                                    Integer infodbver, String geo, String contact, String favlist,
-                                   Integer payopt, Integer orderopt, Integer invopt)
+                                   Integer payopt, Integer orderopt, Integer invopt, Integer deliopt)
     {
         vName = name;
         vDescription = desc;
@@ -244,6 +249,7 @@ public class Or2GoStore  {
 
         vOrderPayOption = payopt;
         vOrderControl = orderopt;
+        vDeliveryOption = deliopt;
 
         processWorkingTime();
         processClosingInfo();
@@ -359,6 +365,9 @@ public class Or2GoStore  {
 
     public synchronized void setPayOption(Integer payopt) { vOrderPayOption = payopt;}
     public synchronized Integer getPayOption(){return vOrderPayOption;}
+
+    public synchronized void setDeliveryOption(Integer deliopt) { vDeliveryOption = deliopt;}
+    public synchronized Integer getDeliveryOption(){return vDeliveryOption;}
 
     public boolean setShutdownInfo(String from, String till, String cause, int type) {
         vClosedFrom = from;
@@ -569,9 +578,9 @@ public class Or2GoStore  {
 
     public synchronized boolean isDownloadRequired() {
         dumpDBStates();
-        /*if (mProductDBState.isRequiredDBDownload()  || mPriceDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
-            return true;*/
-        if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+
+        //if (mInfoDBState.isRequiredDBDownload() || mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
+        if (mProductDBState.isRequiredDBDownload() || mSKUDBState.isRequiredDBDownload())
             return true;
         else
             return false;
@@ -651,6 +660,7 @@ public class Or2GoStore  {
 
     public synchronized void dumpDBStates()
     {
+        System.out.println("Info DB State="+mInfoDBState.getState()+ " Cur Ver="+mInfoDBState.getVer()+" Req Ver="+mInfoDBState.getRequiredVer());
         System.out.println("Product DB State="+mProductDBState.getState()+ " Cur Ver="+mProductDBState.getVer()+" Req Ver="+mProductDBState.getRequiredVer());
         //System.out.println("Price DB State="+mPriceDBState.getState()+ " Cur Ver="+mPriceDBState.getVer()+" Req Ver="+mPriceDBState.getRequiredVer());
         System.out.println("SKU DB State="+mSKUDBState.getState()+ " Cur Ver="+mSKUDBState.getVer()+" Req Ver="+mSKUDBState.getRequiredVer());
