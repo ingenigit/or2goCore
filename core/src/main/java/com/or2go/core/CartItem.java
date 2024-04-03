@@ -1,6 +1,6 @@
 package com.or2go.core;
 
-import static com.or2go.core.UnitManager.GPOS_PROD_UNIT_PC;
+import static com.or2go.core.UnitManager.OR2GO_Unit_Value_PC;
 
 public class CartItem {
     public Integer itemId;
@@ -97,7 +97,7 @@ public class CartItem {
     public String getQnty()
     {
         //if (itemOrderUnit.equals("Pc"))
-        if (itemOrderUnit == GPOS_PROD_UNIT_PC)
+        if (itemOrderUnit == OR2GO_Unit_Value_PC)
         {
             float f = itemQnty;
             Integer nqnty = (int) f;
@@ -205,7 +205,7 @@ public class CartItem {
 
     public boolean isWholeItem()
     {
-        if (itemOrderUnit == GPOS_PROD_UNIT_PC)
+        if (itemOrderUnit == OR2GO_Unit_Value_PC)
             return true;
         else
             return false;

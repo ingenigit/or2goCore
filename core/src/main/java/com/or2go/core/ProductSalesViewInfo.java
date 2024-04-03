@@ -108,7 +108,7 @@ public class ProductSalesViewInfo {
 
     public String getViewQnty()
     {
-        //if (mPriceUnit == GPOS_PROD_UNIT_PC)
+        //if (mPriceUnit == OR2GO_Unit_Value_PC)
         if (mPackType != OR2GO_PRODUCT_PACK_TYPE_NONE)
         {
             Integer nqnty = mQnty.intValue();
