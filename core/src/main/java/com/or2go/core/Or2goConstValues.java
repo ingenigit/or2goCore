@@ -61,6 +61,7 @@ public class Or2goConstValues {
     public static final int OR2GO_DELIVERY_MODEL = 61;
 
     public static final int OR2GO_DISCOUNT_INFO = 70;
+    public static final int OR2GO_COUPON_INFO = 71;
 
     public static final int OR2GO_USER_DELIVERY_ADDR = 80;
     public static final int OR2GO_USER_DELIVERY_ADDR_DELETE = 81;
