@@ -7,6 +7,7 @@ import java.util.Locale;
 
 public class DiscountInfo {
     public int mdId;
+    public String mstoreId;
     public String mdName;
     public String mdDescription;
     public int mdScope;
@@ -21,6 +22,26 @@ public class DiscountInfo {
     public int mdUseCount;
     public float mdUsageAmount;
 
+    //for discount
+    public DiscountInfo(int mdId, String mstoreId, String mdName, String mdDescription, int mdScope, String mdTarget, Float mdAmount, int mdAmntType, Float minordamnt, Float maxdiscamnt, String mdStartDate, String mdEndDate, int mdStatus, int mdUseCount, float mdUsageAmount) {
+        this.mdId = mdId;
+        this.mstoreId = mstoreId;
+        this.mdName = mdName;
+        this.mdDescription = mdDescription;
+        this.mdScope = mdScope;
+        this.mdTarget = mdTarget;
+        this.mdAmount = mdAmount;
+        this.mdAmntType = mdAmntType;
+        this.minordamnt = minordamnt;
+        this.maxdiscamnt = maxdiscamnt;
+        this.mdStartDate = mdStartDate;
+        this.mdEndDate = mdEndDate;
+        this.mdStatus = mdStatus;
+        this.mdUseCount = mdUseCount;
+        this.mdUsageAmount = mdUsageAmount;
+    }
+
+    //for coupon
     public DiscountInfo(int mdId, String mdName, String mdDescription, int mdScope, String mdTarget, Float mdAmount, int mdAmntType, Float minordamnt, Float maxdiscamnt, String mdStartDate, String mdEndDate, int mdStatus, int mdUseCount, float mdUsageAmount) {
         this.mdId = mdId;
         this.mdName = mdName;
