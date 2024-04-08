@@ -9,52 +9,36 @@ public class DiscountInfo {
     public int mdId;
     public String mdName;
     public String mdDescription;
-    public int mdType;
     public int mdScope;
-    public Float mdValue;
+    public String mdTarget;
+    public Float mdAmount;
     public int mdAmntType;
+    public Float minordamnt;
+    public Float maxdiscamnt;
     public String mdStartDate;
     public String mdEndDate;
-
     public int mdStatus;
-
-    //public Float limit;
-    public Float minsaleamnt;
-    public Float maxdiscamnt;
-    public int freeitemid;
-    public String freeqntylimit;
-    public String freeqnty;
-
-    public Integer FTUOnly;
-
-    public Integer VendOnly;
-    public String  DiscVendId;
-    public String StoreId;
-
-
     public int mdUseCount;
     public float mdUsageAmount;
 
-    public DiscountInfo(int id, String name, String desc, int type, int scope, float amnt, int amnttype,
-                        String stdt, String enddt, int sts, int usgcnt, float usgamnt, String storeid)
-    {
-        mdId = id;
-        mdName=name;
-        mdDescription = desc;
-        mdType=type;
-        mdScope = scope;
-        mdValue = amnt;
-        mdAmntType = amnttype;
-        mdStartDate = stdt;
-        mdEndDate = enddt;
-        mdStatus = sts;
-        mdUsageAmount = usgamnt;
-        mdUseCount = usgcnt;
-        StoreId = storeid;
+    public DiscountInfo(int mdId, String mdName, String mdDescription, int mdScope, String mdTarget, Float mdAmount, int mdAmntType, Float minordamnt, Float maxdiscamnt, String mdStartDate, String mdEndDate, int mdStatus, int mdUseCount, float mdUsageAmount) {
+        this.mdId = mdId;
+        this.mdName = mdName;
+        this.mdDescription = mdDescription;
+        this.mdScope = mdScope;
+        this.mdTarget = mdTarget;
+        this.mdAmount = mdAmount;
+        this.mdAmntType = mdAmntType;
+        this.minordamnt = minordamnt;
+        this.maxdiscamnt = maxdiscamnt;
+        this.mdStartDate = mdStartDate;
+        this.mdEndDate = mdEndDate;
+        this.mdStatus = mdStatus;
+        this.mdUseCount = mdUseCount;
+        this.mdUsageAmount = mdUsageAmount;
     }
 
-    public boolean isValid()
-    {
+    public boolean isValid() {
         String startDay = mdStartDate;
         String endDay = mdEndDate;
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.getDefault());
